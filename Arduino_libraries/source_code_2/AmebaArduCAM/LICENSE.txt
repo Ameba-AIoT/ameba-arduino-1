@@ -1,0 +1,1 @@
+The AmebaArduCAM library is forked from works at "https://github.com/ArduCAM/Arduino/tree/master/ArduCAM". The source codes under folder "src" inherit the license from any license claim of "https://github.com/ArduCAM/Arduino/blob/master/LICENSE".
