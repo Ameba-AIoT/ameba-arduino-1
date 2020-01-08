@@ -17,7 +17,7 @@ ameba.project=realtek_ameba1_va0_example
 # Ameba compile variables
 # ----------------------
 
-compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/
+compiler.path={runtime.tools.ameba_1_arm-none-eabi-gcc.path}/bin/
 compiler.c.cmd=arm-none-eabi-gcc
 compiler.c.flags=-c -g -w -mcpu=cortex-m3 -mthumb -Os -std=c++11 -fno-short-enums -fno-common -fmessage-length=0 -Wall -fno-exceptions -ffunction-sections -fdata-sections -fomit-frame-pointer -fno-short-enums -MMD
 compiler.c.elf.cmd=arm-none-eabi-gcc
@@ -98,24 +98,24 @@ recipe.objcopy.hex.cmd.linux=postbuild_img2_arduino_linux
 recipe.objcopy.hex.imagepath={build.path}\application.axf
 recipe.objcopy.hex.imagepath.macosx="{build.path}/application.axf"
 recipe.objcopy.hex.imagepath.linux="{build.path}/application.axf"
-recipe.objcopy.hex.pattern="{runtime.tools.ameba_tools.path}/{recipe.objcopy.hex.cmd}" "{runtime.tools.ameba_tools.path}" "{recipe.objcopy.hex.imagepath}" "{compiler.path}" "{build.variant.path}/{build.sym_bklist}"
+recipe.objcopy.hex.pattern="{runtime.tools.ameba_1_tools.path}/{recipe.objcopy.hex.cmd}" "{runtime.tools.ameba_1_tools.path}" "{recipe.objcopy.hex.imagepath}" "{compiler.path}" "{build.variant.path}/{build.sym_bklist}"
 
 ## Compute size
-recipe.size.pattern.windows="{runtime.tools.ameba_tools.path}/amebasize.exe" "{runtime.tools.ameba_tools.path}"
-recipe.size.pattern.macosx="{runtime.tools.ameba_tools.path}/amebasize" "{runtime.tools.ameba_tools.path}"
-recipe.size.pattern.linux="{runtime.tools.ameba_tools.path}/amebasize" "{runtime.tools.ameba_tools.path}"
+recipe.size.pattern.windows="{runtime.tools.ameba_1_tools.path}/amebasize.exe" "{runtime.tools.ameba_1_tools.path}"
+recipe.size.pattern.macosx="{runtime.tools.ameba_1_tools.path}/amebasize" "{runtime.tools.ameba_1_tools.path}"
+recipe.size.pattern.linux="{runtime.tools.ameba_1_tools.path}/amebasize" "{runtime.tools.ameba_1_tools.path}"
 recipe.size.regex=^(?:bootloader|image2|image3)\s+([0-9]+).*
 
 # Ameba Uploader tools
 # -------------------
 
-tools.ameba_tools.upload.params.verbose=
-tools.ameba_tools.upload.params.quiet=
-tools.ameba_tools.upload.pattern="{runtime.tools.ameba_tools.path}/upload_dap.sh" {upload.verbose}
-tools.ameba_tools.upload.pattern.windows="{runtime.tools.ameba_tools.path}/upload_dap.exe" "{runtime.tools.ameba_tools.path}\ram_all.bin"{upload.verbose}
-tools.ameba_tools.upload.pattern.macosx="{runtime.tools.ameba_tools.path}/upload_dap_macosx" "{runtime.tools.ameba_tools.path}/ram_all.bin"{upload.verbose}
-tools.ameba_tools.upload.pattern.linux="{runtime.tools.ameba_tools.path}/upload_dap_linux" "{runtime.tools.ameba_tools.path}/ram_all.bin"{upload.verbose}
-tools.ameba_tools.upload.network_pattern="{runtime.tools.ameba_tools.path}/upload_ota.exe" -i "{serial.port}" -p "{network.port}" -f "{runtime.tools.ameba_tools.path}\ota.bin"
-tools.ameba_tools.upload.network_pattern.windows="{runtime.tools.ameba_tools.path}/upload_ota.exe" -i "{serial.port}" -p "{network.port}" -f "{runtime.tools.ameba_tools.path}\ota.bin"
-tools.ameba_tools.upload.network_pattern.macosx="{runtime.tools.ameba_tools.path}/upload_ota_macosx" -i "{serial.port}" -p "{network.port}" -f "{runtime.tools.ameba_tools.path}/ota.bin"
-tools.ameba_tools.upload.network_pattern.linux="{runtime.tools.ameba_tools.path}/upload_ota_linux" -i "{serial.port}" -p "{network.port}" -f "{runtime.tools.ameba_tools.path}/ota.bin"
+tools.ameba_1_tools.upload.params.verbose=
+tools.ameba_1_tools.upload.params.quiet=
+tools.ameba_1_tools.upload.pattern="{runtime.tools.ameba_1_tools.path}/upload_dap.sh" {upload.verbose}
+tools.ameba_1_tools.upload.pattern.windows="{runtime.tools.ameba_1_tools.path}/upload_dap.exe" "{runtime.tools.ameba_1_tools.path}\ram_all.bin"{upload.verbose}
+tools.ameba_1_tools.upload.pattern.macosx="{runtime.tools.ameba_1_tools.path}/upload_dap_macosx" "{runtime.tools.ameba_1_tools.path}/ram_all.bin"{upload.verbose}
+tools.ameba_1_tools.upload.pattern.linux="{runtime.tools.ameba_1_tools.path}/upload_dap_linux" "{runtime.tools.ameba_1_tools.path}/ram_all.bin"{upload.verbose}
+tools.ameba_1_tools.upload.network_pattern="{runtime.tools.ameba_1_tools.path}/upload_ota.exe" -i "{serial.port}" -p "{network.port}" -f "{runtime.tools.ameba_1_tools.path}\ota.bin"
+tools.ameba_1_tools.upload.network_pattern.windows="{runtime.tools.ameba_1_tools.path}/upload_ota.exe" -i "{serial.port}" -p "{network.port}" -f "{runtime.tools.ameba_1_tools.path}\ota.bin"
+tools.ameba_1_tools.upload.network_pattern.macosx="{runtime.tools.ameba_1_tools.path}/upload_ota_macosx" -i "{serial.port}" -p "{network.port}" -f "{runtime.tools.ameba_1_tools.path}/ota.bin"
+tools.ameba_1_tools.upload.network_pattern.linux="{runtime.tools.ameba_1_tools.path}/upload_ota_linux" -i "{serial.port}" -p "{network.port}" -f "{runtime.tools.ameba_1_tools.path}/ota.bin"
