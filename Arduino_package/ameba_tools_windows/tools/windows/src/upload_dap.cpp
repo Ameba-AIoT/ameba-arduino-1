@@ -89,6 +89,8 @@ int main(int argc, char *argv[]) {
 	stringstream ss;
 	string disk_caption;
 	string disk_volumename;
+	string mbed_caption;
+	string mbed_volumename;
 	string filepath;
 
 	string filepath_ram_all;
@@ -110,12 +112,16 @@ int main(int argc, char *argv[]) {
 
 			for (iter = lines.begin() + 1; iter != lines.end() - 1; iter++) { //This for loop store the cmd result into disk_caption nad disk_volumename and compare result until "MBED" is found
 				ss.clear();
+				disk_caption.clear();
+				disk_volumename.clear();
 				ss.str(*iter);
 				ss >> disk_caption >> disk_volumename;
 
 				if (disk_volumename.compare("MBED") == 0) {
 					mbed_disk_found = true;
 					no_of_ameba_found++;
+					mbed_caption = disk_caption;
+					mbed_volumename = disk_volumename;
 
 					if (no_of_ameba_found >= 2) {
 						second_ameba_found = true;
@@ -140,7 +146,7 @@ int main(int argc, char *argv[]) {
 		}
 
 		// 2. check if MBED disk is accessable
-		filepath = disk_caption + "\\mbed.htm";
+		filepath = mbed_caption + "\\mbed.htm";
 		if (!isFileExist(filepath)) {
 			cout << "ERR: Cannot access mbed driver!" << endl;
 			break;
@@ -156,7 +162,7 @@ int main(int argc, char *argv[]) {
 		cout << "uploading..." << endl;
 		cmd = "copy \"" + filepath_ram_all;
 		cmd.append("\" ");
-		cmd.append(disk_caption);
+		cmd.append(mbed_caption);
 		cout << cmd << endl;
 		system(cmd.c_str());
 

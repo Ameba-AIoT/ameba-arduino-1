@@ -1206,8 +1206,8 @@
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools_windows-1.1.1.tar.gz",
               "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_windows-1.1.1.tar.gz",
-              "checksum": "SHA-256:10fa8d7bd50e2625a123c1547b643e4d5437e1b3f983d22de664a89cd681d877",
-              "size": "988627"
+              "checksum": "SHA-256:7cb9c430967c0213a87784ea0b015de7a83e79cc774d1f8032561104ea64d14a",
+              "size": "989120"
             },
             {
               "host": "x86_64-apple-darwin",
