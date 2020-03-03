@@ -3,8 +3,8 @@
  *
  * This sketch output a sin wave on DAC pin.
  * It iteratively output voltage level from the value of table sinwave.
- * Each value output with 10us delay. So a full sin wave takes 120*10us = 1.2ms.
- * And the frequency is 1s / 1.2ms = 833Hz
+ * Each value output with 1ms delay. So a full sin wave takes 120 * 1000us = 120ms.
+ * And the frequency is 1s / 120ms = 8.3Hz
  *
  **/
 
@@ -37,6 +37,6 @@ void loop() {
 
   i = (i+1) % maxSamplesNum;
 
-  delayMicroseconds(10);
+  delayMicroseconds(1000);
 
 }

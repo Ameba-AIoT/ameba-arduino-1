@@ -53,7 +53,7 @@ void setup() {
   }
   Serial.println("UVC is ready");
   Serial.println("Open your rtsp player with this address:");
-  Serial.println("\trtsp://192.168.1.1/test.dsp");
+  Serial.println("\trtsp://192.168.1.1/test.sdp");
 }
 
 void loop() {

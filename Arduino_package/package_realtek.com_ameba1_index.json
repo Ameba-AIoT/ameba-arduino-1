@@ -13,15 +13,15 @@
 		{
           "name": "Realtek Ameba Boards (32-bits ARM Cortex-M3)",
           "architecture": "Ameba1",
-          "version": "2.0.6-v2",
+          "version": "2.0.7",
           "category": "Contributed",
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.6-v2.tar.gz",
-          "archiveFileName": "ameba_1-2.0.6-v2.tar.gz",
-          "checksum": "SHA-256:ae23b8a56008edafe70f8db3f304176fab014b7be8a5564ebeedaf0a5b02e3d1",
-          "size": "28100307",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.7.tar.gz",
+          "archiveFileName": "ameba_1-2.0.7.tar.gz",
+          "checksum": "SHA-256:87bf5242974d7a57e89b60a078c4f4a1b3579698521be0264b1f7217c490e360",
+          "size": "28100711",
           "boards": [
             {"name": "Ameba RTL8195A"},
             {"name": "Ameba RTL8710"},
@@ -48,10 +48,10 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.6.tar.gz",
-          "archiveFileName": "ameba_1-2.0.6.tar.gz",
-          "checksum": "SHA-256:bc31dc587be5be4b11737097574210dbbbe8ed1a6185fb120edee1c645647fea",
-          "size": "28113111",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.6-v2.tar.gz",
+          "archiveFileName": "ameba_1-2.0.6-v2.tar.gz",
+          "checksum": "SHA-256:ae23b8a56008edafe70f8db3f304176fab014b7be8a5564ebeedaf0a5b02e3d1",
+          "size": "28100307",
           "boards": [
             {"name": "Ameba RTL8195A"},
             {"name": "Ameba RTL8710"},
