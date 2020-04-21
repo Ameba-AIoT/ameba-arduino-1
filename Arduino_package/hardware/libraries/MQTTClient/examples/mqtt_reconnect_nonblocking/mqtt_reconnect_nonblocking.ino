@@ -16,8 +16,10 @@ char ssid[] = "yourNetwork";     // your network SSID (name)
 char pass[] = "secretPassword";  // your network password
 int status  = WL_IDLE_STATUS;    // the Wifi radio's status
 
-char mqttServer[]     = "iot.eclipse.org";
-char clientId[]       = "amebaClient";
+char mqttServer[]     = "cloud.amebaiot.com";
+char clientId[]       = "amebaClient"; 
+char clientUser[]     = "testuser";
+char clientPass[]     = "testpass";
 char publishTopic[]   = "outTopic";
 char publishPayload[] = "hello world";
 char subscribeTopic[] = "inTopic";
@@ -32,7 +34,7 @@ PubSubClient client(wifiClient);
 long lastReconnectAttempt = 0;
 
 boolean reconnect() {
-  if (client.connect(clientId)) {
+  if (client.connect(clientId, clientUser, clientPass)) {
     // Once connected, publish an announcement...
     client.publish(publishTopic, publishPayload);
     // ... and resubscribe
@@ -55,6 +57,7 @@ void setup()
 
   client.setServer(mqttServer, 1883);
   client.setCallback(callback);
+  client.connect(clientId, clientUser, clientPass);
 
   delay(1500);
   lastReconnectAttempt = 0;

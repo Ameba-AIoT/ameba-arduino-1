@@ -22,7 +22,7 @@ char ssid[] = "yourNetwork";     // your network SSID (name)
 char pass[] = "secretPassword";  // your network password
 int status  = WL_IDLE_STATUS;    // the Wifi radio's status
 
-char mqttServer[]     = "iot.eclipse.org";
+char mqttServer[]     = "test.mosquitto.org";
 char clientId[]       = "amebaClient";
 char publishTopic[]   = "outTopic";
 char publishPayload[] = "hello world";

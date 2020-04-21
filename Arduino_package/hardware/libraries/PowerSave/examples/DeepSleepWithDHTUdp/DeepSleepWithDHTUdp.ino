@@ -72,9 +72,10 @@ void loop()
   Udp.beginPacket(udpSrvIp, udpSrvPort);
   Udp.write(databuf);
   Udp.endPacket();
-  delay(10);
 
   if (!PowerManagement.safeLock()) {
+    delay(100);
+    WiFi.disconnect();
     Serial.println("deepsleep 60s");
     PowerManagement.deepsleep(60000);
 

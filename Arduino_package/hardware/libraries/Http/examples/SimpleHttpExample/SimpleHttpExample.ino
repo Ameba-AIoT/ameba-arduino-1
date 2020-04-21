@@ -9,7 +9,7 @@ char pass[] = "password";    // your network password (use for WPA, or use as ke
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
 
 // Name of the server we want to connect to
-const char kHostname[] = "www.amebaiot.com";
+const char kHostname[] = "www.google.com";
 
 const char kPath[] = "/";
 // Number of milliseconds to wait without receiving any data before we give up

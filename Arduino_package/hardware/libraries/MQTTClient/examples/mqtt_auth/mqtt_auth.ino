@@ -17,7 +17,7 @@ char pass[] = "secretPassword";  // your network password
 
 int status  = WL_IDLE_STATUS;    // the Wifi radio's status
 
-char mqttServer[] = "iot.eclipse.org";
+char mqttServer[] = "cloud.amebaiot.com";
 
 char clientId[]       = "amebaClient";
 char clientUser[]     = "testuser";

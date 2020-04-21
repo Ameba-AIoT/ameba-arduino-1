@@ -22,8 +22,10 @@ char ssid[] = "yourNetwork";     // your network SSID (name)
 char pass[] = "secretPassword";  // your network password
 int status  = WL_IDLE_STATUS;    // the Wifi radio's status
 
-char mqttServer[]     = "iot.eclipse.org";
+char mqttServer[]     = "cloud.amebaiot.com";
 char clientId[]       = "amebaClient";
+char clientUser[]     = "testuser";
+char clientPass[]     = "testpass";
 char publishTopic[]   = "outTopic";
 char publishPayload[] = "hello world";
 char subscribeTopic[] = "inTopic";
@@ -61,7 +63,7 @@ void setup()
     delay(10000);
   }
 
-  if (client.connect(clientId)) {
+  if (client.connect(clientId, clientUser, clientPass)) {
     client.publish(publishTopic, publishPayload);
     client.subscribe(subscribeTopic);
   }

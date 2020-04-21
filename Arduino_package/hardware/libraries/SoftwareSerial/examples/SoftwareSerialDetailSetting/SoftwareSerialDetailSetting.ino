@@ -49,6 +49,8 @@ void setup() {
 
 void loop() { // run over and over
   if (mySerial.available()) {
+    mySerial.print("You have typed:");
     mySerial.write(mySerial.read());
+    mySerial.println();
   }
 }

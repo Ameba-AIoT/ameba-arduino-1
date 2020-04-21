@@ -27,7 +27,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("Keep running, counter: ");
+  Serial.print("Enter sleep for 5s. Count: ");
   Serial.println(counter++);
-  delay(1000);
+  delay(5000);
 }

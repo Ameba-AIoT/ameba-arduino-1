@@ -32,8 +32,8 @@ void setup() {
    */
   delay(30000);
 
-  Serial.println("Enter deepsleep for 10s");
-  PowerManagement.deepsleep(10000);
+  Serial.println("Enter deepsleep for 5s");
+  PowerManagement.deepsleep(5000);
 
   /*  After Ameba resume from deepsleep, 
    *  it starts from beginning just like it's been through a reset.
@@ -41,6 +41,6 @@ void setup() {
 }
 
 void loop() {
-  Serial.println("You won't see this log");
+  Serial.println("Unable to deepsleep");
   delay(1000);
 }
