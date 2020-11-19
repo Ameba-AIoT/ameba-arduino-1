@@ -20,8 +20,8 @@
           },
           "url": "https://raw.githubusercontent.com/ambiot/amb1_arduino/master/Arduino_package/release/ameba_1-2.0.8.tar.gz",
           "archiveFileName": "ameba_1-2.0.8.tar.gz",
-          "checksum": "SHA-256:f58f4edbbeac380ea676ce8e64c304f6437695665292677e1ecd4de90c42505c",
-          "size": "28096625",
+          "checksum": "SHA-256:2adebf8931194e4b137c054b8123cde24947008cec688341456897801ff5219b",
+          "size": "22993038",
           "boards": [
             {"name": "Ameba RTL8195A"},
             {"name": "Ameba RTL8710"},
