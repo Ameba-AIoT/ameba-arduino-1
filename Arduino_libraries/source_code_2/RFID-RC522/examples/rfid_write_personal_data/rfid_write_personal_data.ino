@@ -11,7 +11,7 @@
  * SPI MOSI    MOSI         11        11 / ICSP-4   51        D11        ICSP-4           16
  * SPI MISO    MISO         12        12 / ICSP-1   50        D12        ICSP-1           14
  * SPI SCK     SCK          13        13 / ICSP-3   52        D13        ICSP-3           15
- */
+ *
  * Hardware required:
  * Arduino
  * PCD (Proximity Coupling Device): NXP MFRC522 Contactless Reader IC
