@@ -57,12 +57,12 @@ SECTIONS
 
   .tcm :
   {
-    __tcm_start__ = .;
+    __tcm_bss_start__ = .;
     *(.tcm.heap)
     *mem.o (.bss)
     *memp.o (.bss)
-    __tcm_end__ = .;
-    end = __tcm_end__;
+    __tcm_bss_end__ = .;
+    end = __tcm_bss_end__;
   } > TCM
 
 

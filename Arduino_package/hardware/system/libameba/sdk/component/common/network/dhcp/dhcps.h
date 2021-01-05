@@ -31,6 +31,7 @@
 #define DHCP_MESSAGE_HTYPE 				(1)
 #define DHCP_MESSAGE_HLEN  				(6)
 
+#define DNS_SERVER_PORT 				(53)
 #define DHCP_SERVER_PORT  				(67)
 #define DHCP_CLIENT_PORT  				(68)
 
@@ -46,6 +47,10 @@
 #define DHCP_OPTION_LENGTH_TWO				(2)
 #define DHCP_OPTION_LENGTH_THREE			(3)
 #define DHCP_OPTION_LENGTH_FOUR				(4)
+#ifndef DHCP_MSG_LEN
+#define DHCP_MSG_LEN							236
+#endif
+#define DHCP_OPTION_TOTAL_LENGTH_MAX	312	//(51)= 4(magic)+3(type)+44(option code: 1,3,6,51,54,28,26,32,end)
 
 #define DHCP_OPTION_CODE_SUBNET_MASK   			(1)
 #define DHCP_OPTION_CODE_ROUTER        			(3)
@@ -108,6 +113,19 @@ struct address_pool{
 	uint32_t start;
 	uint32_t end;
 };
+
+PACK_STRUCT_BEGIN
+/** DNS message header */
+struct dns_hdr {
+  PACK_STRUCT_FIELD(u16_t id);
+  PACK_STRUCT_FIELD(u8_t flags1);
+  PACK_STRUCT_FIELD(u8_t flags2);
+  PACK_STRUCT_FIELD(u16_t numquestions);
+  PACK_STRUCT_FIELD(u16_t numanswers);
+  PACK_STRUCT_FIELD(u16_t numauthrr);
+  PACK_STRUCT_FIELD(u16_t numextrarr);
+} PACK_STRUCT_STRUCT;
+PACK_STRUCT_END
 
 /* 01~32 */
 #define MARK_RANGE1_IP_BIT(table, ip)	((table.ip_range[0]) | (1 << ((ip) - 1)))	 

@@ -30,6 +30,10 @@
 #include <Alexa.h>
 #include <FlashMemory.h>
 
+#if defined(BOARD_RTL8710)
+#error "RTL8710 does not support example alexa_basic.ino"
+#endif
+
 char ssid[] = "ssid";     // your network SSID (name)
 char pass[] = "password";  // your network password (use for WPA, or use as key for WEP)
 int keyIndex = 0;                // your network key Index number (needed only for WEP)

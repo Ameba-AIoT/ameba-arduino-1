@@ -36,7 +36,7 @@
 
 #define	UA_PS_ENABLE                 0
 #define	UA_GPIO_WAKEUP_PIN	PC_3
-#define	UA_WAKELOCK                 BIT(PMU_DEV_USERT_BASE)
+#define	UA_WAKELOCK                 BIT(PMU_DEV_USER_BASE)
 
 #define	UA_FAST_RECONNECT_TCP_DATA (0x80000 - 0x2000)
 

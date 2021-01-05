@@ -152,7 +152,7 @@ printf  "Flash write start...\n"
 set $LoopCnt = 0
 while  ($LoopCnt < $LoopNum)
 	p /x FlashAddrForWrite
-    restore ./application/Debug/bin/ram_all.bin binary ($FLASHDATSRC-$FILESTARTADDR) $FILESTARTADDR $FILEENDADDR
+    restore ./application/Debug/bin/ram_all.ns.bin binary ($FLASHDATSRC-$FILESTARTADDR) $FILESTARTADDR $FILEENDADDR
     c
     
     printf "FILEENDADDR"
@@ -169,8 +169,11 @@ end
 #set FlashAddrForWrite = $FILEENDADDR
 #set $FILESTARTADDR = $FILEENDADDR
 set $FILEENDADDR = $FILESTARTADDR + $TailSize
-restore ./application/Debug/bin/ram_all.bin binary ($FLASHDATSRC-$FILESTARTADDR) $FILESTARTADDR $FILEENDADDR
+restore ./application/Debug/bin/ram_all.ns.bin binary ($FLASHDATSRC-$FILESTARTADDR) $FILESTARTADDR $FILEENDADDR
 c
+
+# append image1 signature
+set {int}0x98000034=0x88167923
 
 #Set complete flas
 set FlashWriteComplete = 0x1

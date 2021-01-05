@@ -19,7 +19,7 @@ typedef enum PMU_DEVICE {
     PMU_LOGUART_DEVICE = 2,
     PMU_SDIO_DEVICE = 3,
 
-    PMU_DEV_USERT_BASE= 16,
+    PMU_DEV_USER_BASE= 16,
 
     PMU_MAX = 31
 
@@ -41,7 +41,7 @@ typedef enum PMU_DEVICE {
     PMU_RTC_DEVICE = 10,
     PMU_CONSOLE_DEVICE = 11,
 
-    PMU_DEV_USERT_BASE= 16,
+    PMU_DEV_USER_BASE= 16,
 
     PMU_MAX = 31
 } PMU_DEVICE;
@@ -116,5 +116,27 @@ void pmu_unregister_sleep_callback(uint32_t nDeviceId);
  */
 void pmu_set_pll_reserved(unsigned char reserve);
 #endif
+
+/** Deprecated definitions */
+#define WAKELOCK_OS                      BIT(0)
+#define WAKELOCK_WLAN                    BIT(1)
+#define WAKELOCK_LOGUART                 BIT(2)
+#define WAKELOCK_SDIO_DEVICE             BIT(3)
+#define WAKELOCK_USER_BASE               BIT(16)
+
+typedef void (*freertos_sleep_callback)( unsigned int );
+
+/** Deprecated APIs */
+#define acquire_wakelock(lock_id)              pmu_acquire_wakelock(lock_id)
+#define release_wakelock(lock_id)              pmu_release_wakelock(lock_id)
+#define get_wakelock_status()                  pmu_get_wakelock_status()
+#define get_wakelock_hold_stats(pcWriteBuffer) pmu_get_wakelock_hold_stats(pcWriteBuffer)
+#define clean_wakelock_stat()                  pmu_clean_wakelock_stat()
+#define add_wakeup_event(event)                pmu_add_wakeup_event(event)
+#define del_wakeup_event(event)                pmu_del_wakeup_event(event)
+
+void register_sleep_callback_by_module( unsigned char is_pre_sleep, freertos_sleep_callback sleep_cb, uint32_t module );
+void register_pre_sleep_callback( freertos_sleep_callback pre_sleep_cb );
+void register_post_sleep_callback( freertos_sleep_callback post_sleep_cb );
 
 #endif

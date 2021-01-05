@@ -2,7 +2,7 @@
 #define _PATCH_UVC_GEO_H_
 
 #include "videodev2.h"
-
+#if 0
 #define be32_to_cpu(x)  ((((x) >> 24) & 0xff) | \
              (((x) >> 8) & 0xff00) | \
              (((x) << 8) & 0xff0000) | \
@@ -13,7 +13,7 @@
     (((a)<<16)&0xFF0000))
 #define be16_to_cpu(x)  ((((x) >> 8) & 0xff) | \
              (((x) << 8) & 0xff00))
-
+#endif
 //#define BUFFER_COUNT 8
 #define V4L2_CID_PRIV_EXT_BASE             (0x04000000)
 #define V4L2_CID_XU_BASE                   (V4L2_CID_PRIVATE_BASE|V4L2_CID_PRIV_EXT_BASE)

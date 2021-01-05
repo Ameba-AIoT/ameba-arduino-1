@@ -75,6 +75,9 @@
 #define BAD_MIC_COUNTERMEASURE 1
 #define DEFRAGMENTATION 1
 
+// enable RX_AGGREGATION will solve ping timeout regularly issue on TL-WR886N
+#define RX_AGGREGATION 0
+
 #define WIFI_LOGO_CERTIFICATION 0
 #if WIFI_LOGO_CERTIFICATION
     #define RX_AGGREGATION 1
@@ -325,6 +328,7 @@ extern unsigned int g_ap_sta_num;
 
 #if defined(CONFIG_PLATFORM_AMEBA_X)
 	#if defined(CONFIG_PLATFORM_8195A)
+		#undef CONFIG_RTL8195A
 		#define CONFIG_RTL8195A
 	#endif
 	#if defined(CONFIG_PLATFORM_8711B)
@@ -381,10 +385,11 @@ extern unsigned int g_ap_sta_num;
 	/* For DM debug*/
 	// BB
 	#define DBG_RX_INFO 1
+	#define DBG_DM_DIG 1			// DebugComponents: bit0
+	#define DBG_DM_RA_MASK 1		// DebugComponents: bit1
+	#define DBG_DM_ANT_DIV 1		// DebugComponents: bit6
 	#define DBG_TX_RATE 1			// DebugComponents: bit9
 	#define DBG_DM_RA 1				// DebugComponents: bit9
-	#define DBG_DM_DIG 1			// DebugComponents: bit0
-	#define DBG_DM_ANT_DIV 1		// DebugComponents: bit6
 	#define DBG_DM_ADAPTIVITY 1		// DebugComponents: bit17
 	// RF
 	#define DBG_PWR_TRACKING 1		// DebugComponents: bit24

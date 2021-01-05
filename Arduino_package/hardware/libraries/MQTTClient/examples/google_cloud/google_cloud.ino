@@ -2,6 +2,10 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 
+#if defined(BOARD_RTL8710)
+#error "RTL8710 does not support example google_cloud.ino"
+#endif
+
 #define count   100
 
 extern "C"{   

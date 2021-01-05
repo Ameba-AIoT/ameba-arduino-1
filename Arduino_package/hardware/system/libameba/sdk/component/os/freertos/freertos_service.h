@@ -153,6 +153,7 @@ void cli(void);
 #define KERN_INFO
 #define KERN_NOTICE
 
+#undef GFP_KERNEL
 #define GFP_KERNEL			1
 #define GFP_ATOMIC			1
 
@@ -173,6 +174,7 @@ void cli(void);
 #define DBG_INFO(fmt, args...)
 #endif
 #define HALT()				do { cli(); for(;;);} while(0)
+#undef ASSERT
 #define ASSERT(x)			do { \
 						if((x) == 0) \
 							printf("\n\rAssert(" #x ") failed on line %d in file %s", __LINE__, __FILE__); \
@@ -200,6 +202,7 @@ typedef struct { volatile int counter; } atomic_t;
  * Atomically reads the value of @v.  Note that the guaranteed
  * useful range of an atomic_t is only 24 bits.
  */
+#undef atomic_read
 #define atomic_read(v)  ((v)->counter)
 
 /*
@@ -210,6 +213,7 @@ typedef struct { volatile int counter; } atomic_t;
  * Atomically sets the value of @v to @i.  Note that the guaranteed
  * useful range of an atomic_t is only 24 bits.
  */
+#undef atomic_set
 #define atomic_set(v,i) ((v)->counter = (i))
 
  /*

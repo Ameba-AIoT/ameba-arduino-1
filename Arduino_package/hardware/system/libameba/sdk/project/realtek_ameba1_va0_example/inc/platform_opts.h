@@ -13,7 +13,7 @@
 /**
  * For AT cmd Log service configurations
  */
-#define SUPPORT_LOG_SERVICE	1
+#define SUPPORT_LOG_SERVICE	0
 #if SUPPORT_LOG_SERVICE
 #define LOG_SERVICE_BUFLEN     100 //can't larger than UART_LOG_CMD_BUFLEN(127)
 #define CONFIG_LOG_HISTORY	0
@@ -21,7 +21,9 @@
 #define LOG_HISTORY_LEN    5
 #endif
 #define SUPPORT_INTERACTIVE_MODE		0//on/off wifi_interactive_mode
-#define CONFIG_LOG_SERVICE_LOCK 0
+#define CONFIG_LOG_SERVICE_LOCK         0
+#define CONFIG_ATCMD_MP					0 //support MP AT command
+#define USE_MODE                        1 //for test
 #endif
 
 /**
@@ -63,7 +65,7 @@
 //on/off relative commands in log service
 #define CONFIG_SSL_CLIENT	0
 #define CONFIG_WEBSERVER	0
-#define CONFIG_OTA_UPDATE	0
+#define CONFIG_OTA_UPDATE	1
 #define CONFIG_BSD_TCP		0//NOTE : Enable CONFIG_BSD_TCP will increase about 11KB code size
 #define CONFIG_AIRKISS		0//on or off tencent airkiss
 #define CONFIG_UART_SOCKET	0
@@ -71,7 +73,6 @@
 #define CONFIG_QQ_LINK		0//on or off for qqlink
 #define CONFIG_AIRKISS_CLOUD	0//on or off for weixin hardware cloud
 #define CONFIG_UART_YMODEM	0//support uart ymodem upgrade or not
-#define CONFIG_GOOGLE_NEST	0//on or off the at command control for google nest
 #define CONFIG_TRANSPORT	0//on or off the at command for transport socket
 #define CONFIG_ALINK			0//on or off for alibaba alink
 #define CONFIG_HILINK			0//on or off for huawei hilink
@@ -79,6 +80,9 @@
 /* For WPS and P2P */
 #define CONFIG_ENABLE_WPS		0
 #define CONFIG_ENABLE_P2P		0
+#if CONFIG_ENABLE_WPS
+#define CONFIG_ENABLE_WPS_DISCOVERY	1
+#endif
 #if CONFIG_ENABLE_P2P
 #define CONFIG_ENABLE_WPS_AP		1
 #undef CONFIG_WIFI_IND_USE_THREAD
@@ -88,12 +92,21 @@
 #error "If CONFIG_ENABLE_P2P, need to define CONFIG_ENABLE_WPS_AP 1" 
 #endif
 
+/* For SSL/TLS */
+#define CONFIG_USE_POLARSSL     0
+#define CONFIG_USE_MBEDTLS      0
+#if ((CONFIG_USE_POLARSSL == 0) && (CONFIG_USE_MBEDTLS == 0)) || ((CONFIG_USE_POLARSSL == 1) && (CONFIG_USE_MBEDTLS == 1))
+#undef CONFIG_USE_POLARSSL
+#define CONFIG_USE_POLARSSL 1
+#undef CONFIG_USE_MBEDTLS
+#define CONFIG_USE_MBEDTLS 0
+#endif
 
 /* For Simple Link */
-#define CONFIG_INCLUDE_SIMPLE_CONFIG		1
+#define CONFIG_INCLUDE_SIMPLE_CONFIG		0
 
 /*For fast reconnection*/
-#define CONFIG_EXAMPLE_WLAN_FAST_CONNECT	1
+#define CONFIG_EXAMPLE_WLAN_FAST_CONNECT	0
 
 /*For wowlan service settings*/
 #define CONFIG_WOWLAN_SERVICE           			0
@@ -108,8 +121,14 @@
 
 #define CONFIG_JOINLINK    0
 
+/*For promisc rx unsupported pkt info */
+#define CONFIG_UNSUPPORT_PLCPHDR_RPT 1
+
 #endif //end of #if CONFIG_WLAN
 /*******************************************************************************/
+
+/* For LWIP configuration */
+#define CONFIG_LWIP_DHCP_COARSE_TIMER 60
 
 /**
  * For Ethernet configurations
@@ -200,6 +219,12 @@
 /* For http download example */
 #define CONFIG_EXAMPLE_HTTP_DOWNLOAD	0
 
+/* For httpc example */
+#define CONFIG_EXAMPLE_HTTPC			0
+
+/* For httpd example */
+#define CONFIG_EXAMPLE_HTTPD			0
+
 /* For tcp keepalive example */
 #define CONFIG_EXAMPLE_TCP_KEEPALIVE	0
 
@@ -275,7 +300,7 @@
 
 #define CONFIG_EXAMPLE_MEDIA_SS 				0
 #define CONFIG_EXAMPLE_MEDIA_MS					0
-#define CONFIG_EXAMPLE_MEDIA_GEO_RTP                            0
+#define CONFIG_EXAMPLE_MEDIA_AUDIO_FROM_RTP                     0
 #define CONFIG_EXAMPLE_MEDIA_GEO_MP4                            0
 // Use media source/sink example
 #if (CONFIG_EXAMPLE_MEDIA_SS==1) || (CONFIG_EXAMPLE_MEDIA_MS==1) || (CONFIG_EXAMPLE_MEDIA_GEO_MP4==1)
@@ -415,6 +440,9 @@ in lwip_opt.h for support uart adapter*/
 /* For ota update http example */
 #define CONFIG_EXAMPLE_OTA_HTTP		0
 
+/* For Amazon AWS IoT example */
+#define CONFIG_EXAMPLE_AMAZON_AWS_IOT 0
+
 /******************  For Arduino SDK customize config   *******************/
 #ifdef ARDUINO_SDK
 
@@ -440,13 +468,18 @@ in lwip_opt.h for support uart adapter*/
 // fatfs disk interface
 #define FATFS_DISK_USB	0
 #define FATFS_DISK_SD 	1
-
-#define CONFIG_USE_POLARSSL	1
-
 #endif
 
 
 #endif
 /****************** End of Arduino SDK customize config *******************/
+
+#if CONFIG_ENABLE_WPS
+#define WPS_CONNECT_RETRY_COUNT		4
+#define WPS_CONNECT_RETRY_INTERVAL	5000 // in ms
+#endif 
+
+#define AUTO_RECONNECT_COUNT	8
+#define AUTO_RECONNECT_INTERVAL	5 // in sec
 
 #endif

@@ -32,18 +32,18 @@ void MDNSClass::updateService(MDNSService service, unsigned int ttl) {
 }
 
 MDNSService::MDNSService(char *name, char *service_type, char *domain, unsigned short port, int bufsize) {
-    this->name = (char *)malloc (strlen(name)+1);
+    this->name = (char *)(malloc(strlen(name) + 1));
     sprintf(this->name, "%s", name);
 
-    this->service_type = (char *)malloc (strlen(service_type)+1);
+    this->service_type = (char *)(malloc(strlen(service_type) + 1));
     sprintf(this->service_type, "%s", service_type);
 
-    this->domain = (char *)malloc (strlen(domain)+1);
+    this->domain = (char *)(malloc(strlen(domain) + 1));
     sprintf(this->domain, "%s", domain);
 
     this->port = port;
 
-    buf = (char *) malloc (bufsize);
+    buf = (char *)(malloc(bufsize));
     memset(buf, 0, bufsize);
 
     TXTRecordCreate((TXTRecordRef *)txtRecordObj, bufsize, buf);

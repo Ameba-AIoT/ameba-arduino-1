@@ -8,6 +8,7 @@
 #define __PLATFORM_STDLIB_H__
 
 #define USE_CLIB_PATCH		0
+#define BUFFERED_PRINTF         0
 #if defined (__GNUC__)
 #define USE_RTL_ROM_CLIB	1
 #else
@@ -59,7 +60,12 @@
   #endif
 
   #if USE_RTL_ROM_CLIB
+#if BUFFERED_PRINTF
+        extern int buffered_printf(const char* fmt, ...);
+        #define printf				buffered_printf
+#else
 	#define printf                  	rtl_printf
+#endif
 	#define sprintf						rtl_sprintf
 	#define snprintf					rtl_snprintf
 	#define memchr						rtl_memchr
@@ -176,7 +182,12 @@ extern void vPortFree( void *pv );
 	#undef strncat
 	#undef strstr
 	
+#if BUFFERED_PRINTF
+        extern int buffered_printf(const char* fmt, ...);
+        #define printf				buffered_printf
+#else
 	#define printf				rtl_printf
+#endif
 	#define sprintf				rtl_sprintf
 	#define snprintf				rtl_snprintf
 	#define memchr				rtl_memchr

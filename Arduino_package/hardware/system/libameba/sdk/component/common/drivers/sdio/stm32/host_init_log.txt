@@ -1,0 +1,143 @@
+SPRD:
+<4>1[ 1626.644360] rtw_sdio: mmc_power_off ocr:40000 ocr_avail: 60000 flbit:18
+<4>1[ 1626.644370]  rtw_sdio: clock 0Hz busmode 1 powermode 0 cs 0 Vdd 0 width 0 timing 0
+<4>1[ 1633.846861] rtw_sdio: sdhci_sprd_probe id:0
+<4>1[ 1633.846869]  
+<4>1[ 1633.846944] sprd-sdhci: probe of sprd-sdhci.0 failed with error -1
+<4>1[ 1633.847029] rtw_sdio: sdhci_sprd_probe id:1
+<4>1[ 1633.847036]  rtw_sdio: sdio: host->ioaddr:0xf1212000
+<4>1[ 1633.847119] rtw_sdio: sdhci_module_init
+<4>1[ 1633.847126]  rtw_sdio: after set sd clk, CLK_GEN5:0x28060000
+<4>1[ 1633.847264] rtw_sdio: ******* call  clk_enable*******
+<4>1[ 1633.847838] rtw_sdio: sdhci_add_host
+<4>1[ 1633.847846]  rtw_sdio: sdhci_add_host host->version:0
+<4>1[ 1633.847899]  rtw_sdio: sdhci_add_host caps[0]:2e10080 caps[1]:0
+<4>1[ 1633.847947]  rtw_sdio: sdhci_add_host host->max_clk:90000000
+<4>1[ 1633.848000]  rtw_sdio: sdhci_add_host host->clk_mul:0
+<4>1[ 1633.848048]  rtw_sdio: sdhci_add_host mmc->f_min:351562
+<4>1[ 1633.848094]  rtw_sdio: sdhci_add_host mmc->f_max:90000000
+<4>1[ 1633.848141]  rtw_sdio: sdhci_add_host mmc->ocr_avail:60000
+<4>1[ 1633.848190]  rtw_sdio: sdhci_add_host mmc->max_segs:1
+<4>1[ 1633.848238]  rtw_sdio: sdhci_add_host mmc->max_req_size:524288
+<4>1[ 1633.848284]  rtw_sdio: sdhci_add_host mmc->max_blk_size:1024
+<4>1[ 1633.848334]  rtw_sdio: sdhci_add_host mmc->max_blk_count:65535
+<4>1[ 1633.848384]  rtw_sdio: sdhci_init
+<4>1[ 1633.848488]  rtw_sdio: mmc_rescan
+<4>1[ 1633.848530]  rtw_sdio: mmc_rescan_try_freq
+<4>1[ 1633.848567]  rtw_sdio: mmc_power_off ocr:0 ocr_avail: 60000 flbit:18
+<4>1[ 1633.848610]  rtw_sdio: clock 0Hz busmode 1 powermode 0 cs 0 Vdd 0 width 0 timing 0
+<4>1[ 1634.350826] rtw_sdio: sdhci_hw_reset
+<4>1[ 1634.350839] rtw_sdio: sdhci_init
+<4>1[ 1634.350845]  rtw_sdio: mmc_power_up ocr:40000 ffbit:18 (realtek is bit18)
+<4>1[ 1634.350865]  rtw_sdio: clock 0Hz busmode 1 powermode 1 cs 0 Vdd 18 width 0 timing 0
+<4>1[ 1634.360945] rtw_sdio: clock 400000Hz busmode 1 powermode 2 cs 0 Vdd 18 width 0 timing 0
+<4>0[ 1634.371820] rtw_sdio: clock 400000Hz busmode 1 powermode 2 cs 1 Vdd 18 width 0 timing 0
+<4>1[ 1634.374085] rtw_sdio: clock 400000Hz busmode 1 powermode 2 cs 0 Vdd 18 width 0 timing 0
+<4>1[ 1634.375154] rtw_sdio: mmc_send_if_cond
+<4>1[ 1634.375160]  rtw_sdio: clock 400000Hz busmode 1 powermode 2 cs 0 Vdd 18 width 0 timing 0
+<4>1[ 1634.375997] rtw_sdio: host->ocr:40000
+<4>1[ 1634.378572] rtw_sdio: cccr:sdio_vsn:3
+<4>1[ 1634.378609] rtw_sdio: cccr:sd_vsn:0
+<4>1[ 1634.378642] rtw_sdio: cccr:multi_block:1
+<4>1[ 1634.378678] rtw_sdio: cccr:low_speed:0
+<4>1[ 1634.378712] rtw_sdio: cccr:wide_bus:0
+<4>1[ 1634.378746] rtw_sdio: cccr:high_power:1
+<4>1[ 1634.378781] rtw_sdio: cccr:high_speed:1
+<4>1[ 1634.378816] rtw_sdio: cccr:disable_cd:0
+<4>0[ 1634.394789] rtw_sdio: cis:vendor:24c
+<4>0[ 1634.394829] rtw_sdio: cis:device:8703
+<4>0[ 1634.394864] rtw_sdio: cis:blksize:8
+<4>0[ 1634.394897] rtw_sdio: cis:max_dtr:25000000
+<4>0[ 1634.395669] rtw_sdio: sdio_disable_cd ok
+<4>1[ 1634.396447] rtw_sdio: clock 400000Hz busmode 1 powermode 2 cs 0 Vdd 18 width 0 timing 2
+<4>1[ 1634.396515] rtw_sdio: sdio_enable_hs ok
+<4>1[ 1634.396555] rtw_sdio: clock 48000000Hz busmode 1 powermode 2 cs 0 Vdd 18 width 0 timing 2
+<4>1[ 1634.396693] rtw_sdio: sdio_enable_wide ok
+<4>1[ 1634.396736] rtw_sdio: clock 48000000Hz busmode 1 powermode 2 cs 0 Vdd 18 width 2 timing 2
+<4>1[ 1634.396804] rtw_sdio: card funcs:1 card:d2143780
+<4>1[ 1634.396846] rtw_sdio: sdio_init_func fn:1
+<4>1[ 1634.398369] rtw_sdio: sdio_init_func func->class:7
+<4>1[ 1634.398413] rtw_sdio: sdio_init_func func->vendor:24c
+<4>1[ 1634.398458] rtw_sdio: sdio_init_func func->device:8703
+<4>1[ 1634.398502] rtw_sdio: sdio_init_func func->max_blksize:512
+<4>1[ 1634.398548] rtw_sdio: sdio_init_func func->num_info:0
+<4>1[ 1634.398651] rtw_sdio: set wifi func-1 block size to 512 ok
+<4>1[ 1634.398702] rtw_sdio: RTL871X(adapter): wifi_fake_driver_probe enter
+<4>1[ 1634.501981] rtw_sdio: RTL871X(adapter): CMD52 read test:0x93 is 0x0, 0x23 is 0x5, 0x07 is 0x20 
+<4>1[ 1634.502307] rtw_sdio: RTL871X(adapter): CMD53 read test:0x4c is 0x82028282, 0x4c is 0x8282 8202, 0x4c is 0x82 82 2 82 
+<4>1[ 1634.502516] rtw_sdio: RTL871X(adapter): CMD53 writew test(set 4c[23:24]): 0x4c:83828282
+<4>1[ 1634.502707] rtw_sdio: RTL871X(adapter): CMD53 writel test(clear 4c[23:24]): 0x4c:82028282
+<4>1[ 1634.560771] rtw_sdio: RTL871X(adapter): wifi_fake_driver_probe exit
+<4>1[ 1634.560832] rtw_sdio: sdhci_add_host() host:d2443c64 wifi_func:d24217c0
+<4>1[ 1637.460102] rtw_sdio: mmc_power_off ocr:40000 ocr_avail: 60000 flbit:18
+<4>1[ 1637.460112]  rtw_sdio: clock 0Hz busmode 1 powermode 0 cs 0 Vdd 0 width 0 timing 0
+
+size rtw_sdio.ko:
+   text    data     bss     dec     hex filename
+   6030     592       0    6622    19de rtw_sdio.ko
+
+
+
+
+TMIO:
+root@debian:/lib/modules/2.6.35-a800eva-at3/awl13# insmod rtw_sdio.ko
+rtw_sdio: sh_mobile_sdhi_probe probe sdhi:1
+rtw_sdio: sh_mobile_sdhi_probe after clock enable
+rtw_sdio: get clock rate ok mmc_data->hclk:99000000
+rtw_sdio: sh_mobile_sdhi_probe host->ctl:dc994000 start:e6860000
+rtw_sdio: sh_mobile_sdhi_probe irq:153 i:0 ret:0
+rtw_sdio: sh_mobile_sdhi_probe irq:154 i:1 ret:0
+rtw_sdio: sh_mobile_sdhi_probe irq:155 i:2 ret:0
+rtw_sdio: mmc_rescan
+ rtw_sdio: mmc_rescan_try_freq
+ rtw_sdio: mmc_power_off ocr:0 ocr_avail: 300080 flbit:21
+ rtw_sdio: clock 0Hz busmode 1 powermode 0 cs 0 Vdd 0 width 0 timing 0
+rtw_sdio: mmc_power_up ocr:200000 ffbit:21 (realtek is bit18)
+ rtw_sdio: clock 0Hz busmode 1 powermode 1 cs 0 Vdd 21 width 0 timing 0
+rtw_sdio: clock 400000Hz busmode 1 powermode 2 cs 0 Vdd 21 width 0 timing 0
+rtw_sdio: TMIO TODO
+rtw_sdio: mmc_rescan_try_freq after sdio_reset
+ rtw_sdio: clock 400000Hz busmode 1 powermode 2 cs 1 Vdd 21 width 0 timing 0
+rtw_sdio: clock 400000Hz busmode 1 powermode 2 cs 0 Vdd 21 width 0 timing 0
+rtw_sdio: mmc_rescan_try_freq after mmc_go_idle after
+ rtw_sdio: mmc_send_if_cond
+ rtw_sdio: mmc_rescan_try_freq after mmc_send_if_cond after
+ rtw_sdio: clock 400000Hz busmode 1 powermode 2 cs 0 Vdd 20 width 0 timing 0
+rtw_sdio: host->ocr:300000
+rtw_sdio: cccr:sdio_vsn:3
+rtw_sdio: cccr:sd_vsn:0
+rtw_sdio: cccr:multi_block:1
+rtw_sdio: cccr:low_speed:0
+rtw_sdio: cccr:wide_bus:0
+rtw_sdio: cccr:high_power:1
+rtw_sdio: cccr:high_speed:1
+rtw_sdio: cccr:disable_cd:0
+rtw_sdio: cis:vendor:24c
+rtw_sdio: cis:device:8179
+rtw_sdio: cis:blksize:8
+rtw_sdio: cis:max_dtr:25000000
+rtw_sdio: sdio_disable_cd ok
+rtw_sdio: sdio_enable_hs ok
+rtw_sdio: clock 48000000Hz busmode 1 powermode 2 cs 0 Vdd 20 width 0 timing 0
+rtw_sdio: sdio_enable_wide ok
+rtw_sdio: clock 48000000Hz busmode 1 powermode 2 cs 0 Vdd 20 width 2 timing 0
+rtw_sdio: card funcs:1 card:db790ea0
+rtw_sdio: sdio_init_func fn:1
+rtw_sdio: sdio_init_func func->class:7
+rtw_sdio: sdio_init_func func->vendor:24c
+rtw_sdio: sdio_init_func func->device:8179
+rtw_sdio: sdio_init_func func->max_blksize:512
+rtw_sdio: sdio_init_func func->num_info:0
+rtw_sdio: set wifi func-1 block size to 512 ok
+rtw_sdio: mmc_rescan_try_freq after mmc_attach_sdio after
+ rtw_sdio: base at 0xe6860000 clock rate 99 MHz
+rtw_sdio: RTL871X(adapter): wifi_fake_driver_probe_8189es enter
+rtw_sdio: RTL871X(adapter): CMD52 read test:0x93 is 0xff, 0x23 is 0x5, 0x07 is 0x20
+rtw_sdio: RTL871X(adapter): CMD53 read test:0x4c is 0x28282, 0x4c is 0x8282 2, 0x4c is 0x82 82 2 0
+rtw_sdio: RTL871X(adapter): CMD53 writel test: 0x4c:28282
+rtw_sdio: RTL871X(adapter): CMD53 writel test(set 0x004c[23:24]): 0x004c:1828282
+rtw_sdio: RTL871X(adapter): CMD53 writel test(clear 0x004c[23:24]): 0x004c:28282
+rtw_sdio: RTL871X(adapter): wifi_fake_driver_probe_8189es exit
+rtw_sdio: sdhci_add_host() host:db327138 wifi_func:db78b4a0
+
+

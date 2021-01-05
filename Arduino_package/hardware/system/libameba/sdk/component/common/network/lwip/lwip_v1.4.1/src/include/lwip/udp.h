@@ -156,6 +156,12 @@ void             udp_input      (struct pbuf *p, struct netif *inp);
 
 void             udp_init       (void);
 
+/* Added by Realtek start */
+#if LWIP_RANDOMIZE_INITIAL_LOCAL_PORTS
+void             udp_randomize_local_port   (void);
+#endif
+/* Added by Realtek end */
+
 #if UDP_DEBUG
 void udp_debug_print(struct udp_hdr *udphdr);
 #else

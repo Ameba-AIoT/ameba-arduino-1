@@ -67,7 +67,7 @@ static __inline__ u32 __Delay(u32 us)
 #define Udelay(t)					__Delay(t)
 
 
-#define ASSERT(_bool_)					do { } while (0)
+//#define ASSERT(_bool_)					do { } while (0)
 
 //#define panic_printk				DiagPrintf
 //#define sprintf						DiagPrintf

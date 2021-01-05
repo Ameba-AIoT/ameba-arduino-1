@@ -445,7 +445,7 @@ void tcp_rst(u32_t seqno, u32_t ackno,
        ip_addr_t *local_ip, ip_addr_t *remote_ip,
        u16_t local_port, u16_t remote_port);
 
-u32_t tcp_next_iss(void);
+u32_t tcp_next_iss(struct tcp_pcb *pcb);
 
 void tcp_keepalive(struct tcp_pcb *pcb);
 void tcp_zero_window_probe(struct tcp_pcb *pcb);

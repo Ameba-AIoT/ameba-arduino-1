@@ -7,6 +7,10 @@
 #include <ArduinoJson.h>
 #include <PubSubClient.h>
 
+#if defined(BOARD_RTL8710)
+#error "RTL8710 do not support example azure_iot_hub_basic.ino"
+#endif
+
 char devinfoStr[] = "{ \"ObjectType\":\"DeviceInfo\", \"Version\":\"1.0\", \"IsSimulatedDevice\":false, \"DeviceProperties\":\"DeviceProperties\",  \"Commands\": [ {\"Name\":\"SetHumidity\", \"Parameters\":[{\"Name\":\"humidity\",\"Type\":\"double\"}]}, { \"Name\":\"SetTemperature\", \"Parameters\":[{\"Name\":\"temperature\",\"Type\":\"double\"}]} ] }";
 char devicePropertiesStr[] = "{ \"DeviceID\":\"device\", \"HubEnabledState\":true, \"Manufacturer\": \"manufacturer\", \"Latitude\": 43.7184039, \"Longitude\": -79.5181426}";
 

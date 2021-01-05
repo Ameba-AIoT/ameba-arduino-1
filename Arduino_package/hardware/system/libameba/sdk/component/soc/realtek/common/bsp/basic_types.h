@@ -81,8 +81,9 @@ typedef unsigned int            BOOL;
 #ifndef BOOL
 typedef unsigned char           BOOL;
 #endif
-#ifndef __cplusplus
 #ifndef bool
+//zzw arduino
+#ifndef __cplusplus
 typedef unsigned char           bool;
 #endif
 #endif

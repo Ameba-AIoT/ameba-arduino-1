@@ -30,6 +30,8 @@
 #define CMD_SET_TASK_FROZEN             0x25
 #define CMD_SET_TASK_OFF                0x26
 #define CMD_SELECT_CHANNEL		0x30
+#define CMD_ENABLE_CHANNEL              0X31
+#define CMD_DISABLE_CHANNEL             0x32
 #define CMD_SET_CB_START		0x40
 #define CMD_SET_CB_STOP			0x41
 #define CMD_SET_CB_PAUSE		0x42

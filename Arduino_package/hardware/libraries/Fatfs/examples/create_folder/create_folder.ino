@@ -11,35 +11,35 @@ char write_content[] = "hello world!";
 SdFatFs fs;
 
 void setup() {
-  char buf[128];
-  char absolute_filename[128];
+    char buf[128];
+    char absolute_filename[128];
 
-  fs.begin();
+    fs.begin();
 
-  sprintf(absolute_filename, "%s%s", fs.getRootPath(), dirname);
-  fs.mkdir(absolute_filename);
-  printf("create dir at \"%s\"\r\n", absolute_filename);
+    sprintf(absolute_filename, "%s%s", fs.getRootPath(), dirname);
+    fs.mkdir(absolute_filename);
+    printf("create dir at \"%s\"\r\n", absolute_filename);
 
-  sprintf(absolute_filename, "%s%s/%s", fs.getRootPath(), dirname, filename);
-  SdFatFile file = fs.open(absolute_filename);
-  file.println(write_content);
-  file.close();
-  printf("create file at \"%s\"\r\n", absolute_filename);
+    sprintf(absolute_filename, "%s%s/%s", fs.getRootPath(), dirname, filename);
+    SdFatFile file = fs.open(absolute_filename);
+    file.println(write_content);
+    file.close();
+    printf("create file at \"%s\"\r\n", absolute_filename);
 
-  printf("read back from \"%s\"\r\n", absolute_filename);
-  file = fs.open(absolute_filename);
+    printf("read back from \"%s\"\r\n", absolute_filename);
+    file = fs.open(absolute_filename);
 
-  memset(buf, 0, sizeof(buf));
-  file.read(buf, sizeof(buf));
+    memset(buf, 0, sizeof(buf));
+    file.read(buf, sizeof(buf));
 
-  file.close();
-  printf("==== content ====\r\n");
-  printf("%s", buf);
-  printf("====   end   ====\r\n");
+    file.close();
+    printf("==== content ====\r\n");
+    printf("%s", buf);
+    printf("====   end   ====\r\n");
 
-  fs.end();
+    fs.end();
 }
 
 void loop() {
-
+    delay(1000);
 }

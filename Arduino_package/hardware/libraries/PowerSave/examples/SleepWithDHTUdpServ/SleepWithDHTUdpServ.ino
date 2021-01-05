@@ -11,6 +11,10 @@
 #include <PowerManagement.h>
 #include "DHT.h"
 
+#if defined(BOARD_RTL8710)
+#error "RTL8710 does not support example SleepWithUdpServ.ino"
+#endif
+
 #define DHTPIN 2     // what digital pin we're connected to
 
 // Uncomment whatever type you're using!

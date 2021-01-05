@@ -20,6 +20,10 @@
 #include <PowerManagement.h>r
 #include "DHT.h"
 
+#if defined(BOARD_RTL8710)
+#error "RTL8710 does not support example DeepSleepWithDHTLass.ino"
+#endif
+
 char ssid[] = "yourNetwork";    // your network SSID (name)
 char pass[] = "secretPassword"; // your network password
 int keyIndex = 0;               // your network key Index number (needed only for WEP)

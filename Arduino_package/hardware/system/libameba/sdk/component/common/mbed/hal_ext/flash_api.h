@@ -44,6 +44,14 @@ int flash_burst_write(flash_t * obj, uint32_t address, uint32_t Length, uint8_t 
 int flash_burst_read(flash_t * obj, uint32_t address, uint32_t Length, uint8_t * data);
 int flash_set_extend_addr(flash_t * obj, uint32_t data);
 int flash_get_extend_addr(flash_t * obj);
+int flash_read_id(flash_t *obj, uint8_t *buf, uint8_t len);
+int flash_read_unique_id(flash_t *obj, uint8_t *buf, uint8_t len);
+void flash_set_lock_mode(uint32_t mode);
+void flash_global_lock(void);
+void flash_global_unlock(void);
+void flash_individual_lock(uint32_t address);
+void flash_individual_unlock(uint32_t address);
+int flash_read_individual_lock_state(uint32_t address);
 
 #ifdef __cplusplus
 }

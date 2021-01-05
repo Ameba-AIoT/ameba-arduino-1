@@ -6,6 +6,10 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 
+#if defined(BOARD_RTL8710)
+#error "RTL8710 does not support example amazon_awsiot_with_ack.ino"
+#endif
+
 // Update these with values suitable for your network.
 char ssid[] = "yourNetwork";     // your network SSID (name)
 char pass[] = "secretPassword";  // your network password

@@ -16,7 +16,11 @@ extern "C" {
 #endif
 
 /** period (in seconds) of the application calling dhcp_coarse_tmr() */
+#if CONFIG_LWIP_DHCP_COARSE_TIMER
+#define DHCP_COARSE_TIMER_SECS CONFIG_LWIP_DHCP_COARSE_TIMER
+#else
 #define DHCP_COARSE_TIMER_SECS 60 
+#endif
 /** period (in milliseconds) of the application calling dhcp_coarse_tmr() */
 #define DHCP_COARSE_TIMER_MSECS (DHCP_COARSE_TIMER_SECS * 1000UL)
 /** period (in milliseconds) of the application calling dhcp_fine_tmr() */
@@ -68,6 +72,7 @@ struct dhcp
   ip_addr_t offered_si_addr;
   char boot_file_name[DHCP_FILE_LEN];
 #endif /* LWIP_DHCP_BOOTPFILE */
+  u32_t seconds_elapsed;
 };
 
 /* MUST be compiled with "pack structs" or equivalent! */

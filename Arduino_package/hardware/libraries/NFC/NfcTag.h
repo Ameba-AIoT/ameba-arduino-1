@@ -34,9 +34,9 @@
 /**
  * @brief The maximum number of NDEF message available
  *
- * In general case, 2 NDEF message is enough for most application.
+ * In general case, 2 NDEF message is enough for most application. 50 is maxima.
  */
-#define NFC_MAX_NDEF_NUM 2
+#define NFC_MAX_NDEF_NUM 50
 
 /**
  * @defgroup tnf_message_type tnf_message_type

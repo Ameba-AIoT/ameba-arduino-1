@@ -19,6 +19,7 @@
 
 #include "osdep_api.h"
 #include "hal_diag.h"
+#include "platform_stdlib.h"
 
 #define CONSOLE_PREFIX	"#"
 
@@ -29,6 +30,10 @@
 #define UART_LOG_CMD_BUFLEN     127     
 #define MAX_ARGV                10
 
+//print log buffer length, if buffer get full, the extra logs will be discarded.
+#if BUFFERED_PRINTF
+#define MAX_PRINTF_BUF_LEN 1024
+#endif
 
 
 typedef u32 (*ECHOFUNC)(IN u8*,...);    //UART LOG echo-function type.

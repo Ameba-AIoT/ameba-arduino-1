@@ -10,6 +10,11 @@
 #ifndef WPS_DEFS_H
 #define WPS_DEFS_H
 
+#ifdef CONFIG_WPS2
+#define WPS_VERSION 0x20
+#else /* CONFIG_WPS2 */
+#define WPS_VERSION 0x10
+#endif /* CONFIG_WPS2 */
 
 /* Diffie-Hellman 1536-bit MODP Group; RFC 3526, Group 5 */
 #define WPS_DH_GROUP 			(5)
