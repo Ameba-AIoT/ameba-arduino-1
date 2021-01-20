@@ -103,7 +103,8 @@ private:
 
 	// TWI clock frequency
 	static const uint32_t TWI_CLOCK = 100000;
-	uint32_t twiClock;
+	uint32_t twiClock = 0;
+	uint32_t is_begin = 0;
 
 	// Timeouts (
 	static const uint32_t RECV_TIMEOUT = 100000;

@@ -60,12 +60,16 @@ void TwoWire::begin() {
 	this->srvBufferIndex = 0; 
 	this->srvBufferLength = 0;
 	this->status = UNINITIALIZED;
-	this->twiClock = this->TWI_CLOCK;
+
+    if (twiClock == 0) {
+        this->twiClock = this->TWI_CLOCK;
+    }
 
 	i2c_init( (i2c_t *)this->pI2C, (PinName)this->SDA_pin, (PinName)this->SCL_pin );
     i2c_frequency( (i2c_t *)this->pI2C,this->twiClock );
 
     status = MASTER_IDLE;
+    is_begin = 1;
 }
 
 void TwoWire::begin(uint8_t address = 0) {
@@ -76,7 +80,10 @@ void TwoWire::begin(uint8_t address = 0) {
 	this->srvBufferIndex = 0; 
 	this->srvBufferLength = 0;
 	this->status = UNINITIALIZED;
-	this->twiClock = this->TWI_CLOCK;
+
+    if (twiClock == 0) {
+        this->twiClock = this->TWI_CLOCK;
+    }
 
 	i2c_init( (i2c_t *)this->pI2C, (PinName)this->SDA_pin, (PinName)this->SCL_pin );
     i2c_frequency( (i2c_t *)this->pI2C, this->twiClock );
@@ -84,6 +91,7 @@ void TwoWire::begin(uint8_t address = 0) {
     i2c_slave_mode( (i2c_t *)this->pI2C, 1 );
 
 	status = SLAVE_IDLE;
+    is_begin = 1;
 }
 
 void TwoWire::begin(int address) {
@@ -92,7 +100,9 @@ void TwoWire::begin(int address) {
 
 void TwoWire::setClock(uint32_t frequency) {
 	twiClock = frequency;
-    i2c_frequency( (i2c_t *)this->pI2C, this->twiClock );
+    if (is_begin == 1) {
+        i2c_frequency( (i2c_t *)this->pI2C, this->twiClock );
+    }
 }
 
 uint8_t TwoWire::requestFrom(uint8_t address, uint8_t quantity, uint8_t sendStop) {
