@@ -54,6 +54,17 @@ void watchdog_stop(void);
  */
 void watchdog_refresh(void);
 
+/**
+ * @brief   Switch the watchdog timer to interrupt mode and
+ *           register a watchdog timer timeout interrupt handler.
+ *           The interrupt handler will be called when the watch-dog 
+ *           timer is timeout.
+ * @param   handler: the callback function for WDT timeout interrupt.
+ * @param   id: the parameter for the callback function
+ * @retval  none           
+ */
+void watchdog_irq_init(wdt_irq_handler handler, uint32_t id);
+
 #ifdef __cplusplus
 }
 #endif

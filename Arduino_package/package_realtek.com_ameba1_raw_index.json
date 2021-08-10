@@ -18,14 +18,14 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://raw.githubusercontent.com/ambiot/amb1_arduino/master/Arduino_package/release/ameba_1-2.0.10-v2.tar.gz",
-          "archiveFileName": "ameba_1-2.0.10-v2.tar.gz",
-          "checksum": "SHA-256:00391097eed30468ac900dde685f4811d7b5b644a25afa400b77f401d1f2c806",
-          "size": "18773638",
+          "url": "https://raw.githubusercontent.com/ambiot/amb1_arduino/master/Arduino_package/release/ameba_1-2.0.10-v3.tar.gz",
+          "archiveFileName": "ameba_1-2.0.10-v3.tar.gz",
+          "checksum": "SHA-256:828e31c4108d69f98c2ab827d153b8e5a745b0222d17f137d5829789dd67185d",
+          "size": "18772303",
           "boards": [
-            {"name": "Ameba RTL8195A"},
-            {"name": "Ameba RTL8710"},
-            {"name": "Ameba RTL8711AM"}
+            {"name": "RTL8195AM"},
+            {"name": "RTL8710AF"},
+            {"name": "RTL8711AM"}
           ],
           "toolsDependencies": [
             {
