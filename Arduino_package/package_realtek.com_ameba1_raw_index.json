@@ -21,7 +21,7 @@
           "url": "https://raw.githubusercontent.com/ambiot/amb1_arduino/master/Arduino_package/release/ameba_1-2.0.10-v5.tar.gz",
           "archiveFileName": "ameba_1-2.0.10-v5.tar.gz",
           "checksum": "SHA-256:f9774d6a3687a0cd522de29e452c18cbbf6e096be45793513fd18fab062b5a67",
-          "size": "10219520",
+          "size": "10216017",
           "boards": [
             {"name": "RTL8195AM"},
             {"name": "RTL8710AF"},
