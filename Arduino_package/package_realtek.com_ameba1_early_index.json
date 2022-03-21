@@ -18,7 +18,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.12-build20220317.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_1-2.0.12-build20220317.tar.gz",
           "archiveFileName": "ameba_1-2.0.12-build20220317.tar.gz",
           "checksum": "SHA-256:bc58a47a68a4fc5313b1b4011bcc9f15fa452fa72df9ecdf135d6a7d882a0c9f",
           "size": "10575496",
@@ -48,7 +48,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.10-build20210617.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_1-2.0.10-build20210617.tar.gz",
           "archiveFileName": "ameba_1-2.0.10-build20210617.tar.gz",
           "checksum": "SHA-256:00391097eed30468ac900dde685f4811d7b5b644a25afa400b77f401d1f2c806",
           "size": "18773638",
@@ -78,7 +78,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.10-build20210226.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_1-2.0.10-build20210226.tar.gz",
           "archiveFileName": "ameba_1-2.0.10-build20210226.tar.gz",
           "checksum": "SHA-256:67a3d15fd764daca3597755c58e2a0c85e0913796d16f37623a0f388623a34c8",
           "size": "18767047",
@@ -108,7 +108,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.10-build20210203.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_1-2.0.10-build20210203.tar.gz",
           "archiveFileName": "ameba_1-2.0.10-build20210203.tar.gz",
           "checksum": "SHA-256:24ca025a9715b2aff73209ecf315819defb56919a858e8a2e566576bf6d287b8",
           "size": "18764742",
@@ -138,7 +138,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.10-build20210120.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_1-2.0.10-build20210120.tar.gz",
           "archiveFileName": "ameba_1-2.0.10-build20210120.tar.gz",
           "checksum": "SHA-256:e5d0e6731dd815b12dc633abc0888b8266101f5ddb128193946176068022f29d",
           "size": "18771030",
@@ -168,7 +168,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.9-build20201214.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_1-2.0.9-build20201214.tar.gz",
           "archiveFileName": "ameba_1-2.0.9-build20201214.tar.gz",
           "checksum": "SHA-256:2d4597c4dcdabc42291793b23ea145776cc64ba42dce115f6f46c9c082cdfd8b",
           "size": "21222325",
@@ -198,7 +198,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.8-build20201203.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_1-2.0.8-build20201203.tar.gz",
           "archiveFileName": "ameba_1-2.0.8-build20201203.tar.gz",
           "checksum": "SHA-256:cd9f16419ff768ac36527045a0e618cdd28ade4264beb652f58f4efb2c292228",
           "size": "23024752",
@@ -228,7 +228,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_1-2.0.7-build20200227.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_1-2.0.7-build20200227.tar.gz",
           "archiveFileName": "ameba_1-2.0.7-build20200227.tar.gz",
           "checksum": "SHA-256:87bf5242974d7a57e89b60a078c4f4a1b3579698521be0264b1f7217c490e360",
           "size": "28100711",
@@ -258,7 +258,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba-2.0.6-build20200106v3.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba-2.0.6-build20200106v3.tar.gz",
           "archiveFileName": "ameba-2.0.6-build20200106v3.tar.gz",
           "checksum": "SHA-256:bc2fe0dbddc8553a1c8257311f0383d61b5ea5fd51bced2d33d3b81920d991c0",
           "size": "28108989",
@@ -288,7 +288,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba-2.0.4-build20180817.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba-2.0.4-build20180817.tar.gz",
           "archiveFileName": "ameba-2.0.4-build20180817.tar.gz",
           "checksum": "SHA-256:fc093af03fd3890b0a31a9e146f2dff0da0d14b3960fc3d8f563257a40acf5e4",
           "size": "28099735",
@@ -317,7 +317,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba-2.0.2-build20180206.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba-2.0.2-build20180206.tar.gz",
           "archiveFileName": "ameba-2.0.2-build20180206.tar.gz",
           "checksum": "SHA-256:3d947600660e34a36d334060aeb201363c132cd8922d34aaf37d3c49e20b1c0d",
           "size": "28111816",
@@ -346,7 +346,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba-2.0.1-build20170508v2.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba-2.0.1-build20170508v2.tar.gz",
           "archiveFileName": "ameba-2.0.1-build20170508v2.tar.gz",
           "checksum": "SHA-256:0079ed1a1bdc005b5155d935e2e76fa37e023c8dbd44473c5ba6d656e6cc53ad",
           "size": "27920875",
@@ -375,7 +375,7 @@
           "help": {
             "online": "http://www.amebaiot.com/"
           },
-          "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba-2.0.0-build20170316.tar.gz",
+          "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba-2.0.0-build20170316.tar.gz",
           "archiveFileName": "ameba-2.0.0-build20170316.tar.gz",
           "checksum": "SHA-256:2ed25dd20ee1ce77beab6128431f919bcb8a0ef558374cccdc3abbdfdeeb0960",
           "size": "27065195",
@@ -474,28 +474,28 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools_windows-1.1.1.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_windows-1.1.1.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_windows-1.1.1.tar.gz",
               "checksum": "SHA-256:7cb9c430967c0213a87784ea0b015de7a83e79cc774d1f8032561104ea64d14a",
               "size": "989120"
             },
             {
               "host": "x86_64-apple-darwin",
               "archiveFileName": "ameba_tools_macosx-1.1.1.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_macosx-1.1.1.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_macosx-1.1.1.tar.gz",
               "checksum": "SHA-256:2fa7690929c4f2b4fe862e550427e97e0bd48f09da9882118a0d746761665ec3",
               "size": "64965"
             },
             {
                "host":"x86_64-pc-linux-gnu",
                "archiveFileName": "ameba_tools_linux-1.1.1.tar.gz",
-               "url":"https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_linux-1.1.1.tar.gz",
+               "url":"https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_linux-1.1.1.tar.gz",
                "checksum":"SHA-256:84945f9bc5efec558ee254952e1b03ad2afa775b7aa87f189051bfffb176e395",
                "size":"3302451"
             },
             {
                "host":"i686-pc-linux-gnu",
                "archiveFileName": "ameba_tools_linux-1.1.1.tar.gz",
-               "url":"https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_linux-1.1.1.tar.gz",
+               "url":"https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_linux-1.1.1.tar.gz",
                "checksum":"SHA-256:84945f9bc5efec558ee254952e1b03ad2afa775b7aa87f189051bfffb176e395",
                "size":"3302451"
             }
@@ -508,28 +508,28 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools_windows-1.1.1.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_windows-1.1.1.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_windows-1.1.1.tar.gz",
               "checksum": "SHA-256:10fa8d7bd50e2625a123c1547b643e4d5437e1b3f983d22de664a89cd681d877",
               "size": "988627"
             },
             {
               "host": "x86_64-apple-darwin",
               "archiveFileName": "ameba_tools_macosx-1.1.1.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_macosx-1.1.1.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_macosx-1.1.1.tar.gz",
               "checksum": "SHA-256:2fa7690929c4f2b4fe862e550427e97e0bd48f09da9882118a0d746761665ec3",
               "size": "64965"
             },
             {
                "host":"x86_64-pc-linux-gnu",
                "archiveFileName": "ameba_tools_linux-1.1.1.tar.gz",
-               "url":"https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_linux-1.1.1.tar.gz",
+               "url":"https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_linux-1.1.1.tar.gz",
                "checksum":"SHA-256:84945f9bc5efec558ee254952e1b03ad2afa775b7aa87f189051bfffb176e395",
                "size":"3302451"
             },
             {
                "host":"i686-pc-linux-gnu",
                "archiveFileName": "ameba_tools_linux-1.1.1.tar.gz",
-               "url":"https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_linux-1.1.1.tar.gz",
+               "url":"https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_linux-1.1.1.tar.gz",
                "checksum":"SHA-256:84945f9bc5efec558ee254952e1b03ad2afa775b7aa87f189051bfffb176e395",
                "size":"3302451"
             }
@@ -542,28 +542,28 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools_windows-1.1.0.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_windows-1.1.0.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_windows-1.1.0.tar.gz",
               "checksum": "SHA-256:731cd60b06616cc872d88a8262b297d3c5a10e353e54e240b160caa9bb0d3e80",
               "size": "784222"
             },
             {
               "host": "x86_64-apple-darwin",
               "archiveFileName": "ameba_tools_macosx-1.1.0.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_macosx-1.1.0.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_macosx-1.1.0.tar.gz",
               "checksum": "SHA-256:727ddab27246e93ec1f4f7c1b877463b8ffc9add120e3ebaabb2fa601b68bf94",
               "size": "65604"
             },
             {
                "host":"x86_64-pc-linux-gnu",
                "archiveFileName": "ameba_tools_linux-1.1.0.tar.gz",
-               "url":"https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_linux-1.1.0.tar.gz",
+               "url":"https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_linux-1.1.0.tar.gz",
                "checksum":"SHA-256:44baa47f871e3139c971ade778a277c365acbc2676e032c46bc8c31440bec6c8",
                "size":"3211616"
             },
             {
                "host":"i686-pc-linux-gnu",
                "archiveFileName": "ameba_tools_linux-1.1.0.tar.gz",
-               "url":"https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_linux-1.1.0.tar.gz",
+               "url":"https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_linux-1.1.0.tar.gz",
                "checksum":"SHA-256:44baa47f871e3139c971ade778a277c365acbc2676e032c46bc8c31440bec6c8",
                "size":"3211616"
             }
@@ -576,28 +576,28 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools_windows-1.0.9.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_windows-1.0.9.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_windows-1.0.9.tar.gz",
               "checksum": "SHA-256:ccb795361cf20a69d41ef97466ee127c4721cd0068f9569b72fdb965356db3ec",
               "size": "784212"
             },
             {
               "host": "x86_64-apple-darwin",
               "archiveFileName": "ameba_tools_macosx-1.0.9.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_macosx-1.0.9.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_macosx-1.0.9.tar.gz",
               "checksum": "SHA-256:d4b938b34140d8bab16efc538f482bf61c22795ad690c9114215286e37ab7fdd",
               "size": "64855"
             },
             {
                "host":"x86_64-pc-linux-gnu",
                "archiveFileName": "ameba_tools_linux-1.0.9-v2.tar.gz",
-               "url":"https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_linux-1.0.9-v2.tar.gz",
+               "url":"https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_linux-1.0.9-v2.tar.gz",
                "checksum":"SHA-256:e55c49504521d4084c753983e3102fbedecf085d7aaba6fdbf3194ce52ce9ea5",
                "size":"3212475"
             },
             {
                "host":"i686-pc-linux-gnu",
                "archiveFileName": "ameba_tools_linux-1.0.9-v2.tar.gz",
-               "url":"https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools_linux-1.0.9-v2.tar.gz",
+               "url":"https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools_linux-1.0.9-v2.tar.gz",
                "checksum":"SHA-256:e55c49504521d4084c753983e3102fbedecf085d7aaba6fdbf3194ce52ce9ea5",
                "size":"3212475"
             }
@@ -610,14 +610,14 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools-1.0.8.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.8.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.8.tar.gz",
               "checksum": "SHA-256:8f2f84ee52862c101e61e3eabae7f20384e02d8640451d96a5357fa260df82c7",
               "size": "5527556"
             },
             {
               "host": "x86_64-apple-darwin",
               "archiveFileName": "ameba_tools-1.0.8.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.8.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.8.tar.gz",
               "checksum": "SHA-256:8f2f84ee52862c101e61e3eabae7f20384e02d8640451d96a5357fa260df82c7",
               "size": "5527556"
             }
@@ -630,14 +630,14 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools-1.0.7.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.7.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.7.tar.gz",
               "checksum": "SHA-256:2e67bcfbcd31ce3cc02a8edb4f645ccb2dcd8b3b9ccb63f2d090e54225c94075",
               "size": "5540922"
             },
             {
               "host": "x86_64-apple-darwin",
               "archiveFileName": "ameba_tools-1.0.7.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.7.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.7.tar.gz",
               "checksum": "SHA-256:2e67bcfbcd31ce3cc02a8edb4f645ccb2dcd8b3b9ccb63f2d090e54225c94075",
               "size": "5540922"
             }
@@ -650,14 +650,14 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools-1.0.6.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.6.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.6.tar.gz",
               "checksum": "SHA-256:ac6580447f73fd3d5f063b4396e0b75865b6067f4d47eee7c68e39a47e13f222",
               "size": "5502387"
             },
             {
               "host": "x86_64-apple-darwin",
               "archiveFileName": "ameba_tools-1.0.6.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.6.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.6.tar.gz",
               "checksum": "SHA-256:ac6580447f73fd3d5f063b4396e0b75865b6067f4d47eee7c68e39a47e13f222",
               "size": "5502387"
             }
@@ -670,14 +670,14 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools-1.0.5.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.5.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.5.tar.gz",
               "checksum": "SHA-256:ac6580447f73fd3d5f063b4396e0b75865b6067f4d47eee7c68e39a47e13f222",
               "size": "5502387"
             },
             {
               "host": "x86_64-apple-darwin",
               "archiveFileName": "ameba_tools-1.0.5.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.5.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.5.tar.gz",
               "checksum": "SHA-256:ac6580447f73fd3d5f063b4396e0b75865b6067f4d47eee7c68e39a47e13f222",
               "size": "5502387"
             }
@@ -690,14 +690,14 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools-1.0.4.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.4.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.4.tar.gz",
               "checksum": "SHA-256:ac6580447f73fd3d5f063b4396e0b75865b6067f4d47eee7c68e39a47e13f222",
               "size": "5502387"
             },
             {
               "host": "x86_64-apple-darwin",
               "archiveFileName": "ameba_tools-1.0.4.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.4.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.4.tar.gz",
               "checksum": "SHA-256:ac6580447f73fd3d5f063b4396e0b75865b6067f4d47eee7c68e39a47e13f222",
               "size": "5502387"
             }
@@ -710,7 +710,7 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools-1.0.3.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.2.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.2.tar.gz",
               "checksum": "SHA-256:cb5115f389896786995b6d6d9edd9c25408310700dc6bed267325a02b1dc3e90",
               "size": "5108076"
             }
@@ -723,7 +723,7 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools-1.0.2.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.2.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.2.tar.gz",
               "checksum": "SHA-256:cb5115f389896786995b6d6d9edd9c25408310700dc6bed267325a02b1dc3e90",
               "size": "5108076"
             }
@@ -736,7 +736,7 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools-1.0.1.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.1.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.1.tar.gz",
               "checksum": "SHA-256:cb5115f389896786995b6d6d9edd9c25408310700dc6bed267325a02b1dc3e90",
               "size": "5108076"
             }
@@ -749,7 +749,7 @@
             {
               "host": "i686-mingw32",
               "archiveFileName": "ameba_tools-1.0.0.tar.gz",
-              "url": "https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/release/ameba_tools-1.0.0.tar.gz",
+              "url": "https://github.com/ambiot/amb1_arduino/raw/dev/Arduino_package/release/ameba_tools-1.0.0.tar.gz",
               "checksum": "SHA-256:cb5115f389896786995b6d6d9edd9c25408310700dc6bed267325a02b1dc3e90",
               "size": "5108076"
             }
