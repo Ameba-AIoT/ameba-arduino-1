@@ -338,8 +338,7 @@
             }
           ]
         },
-		},
-        {
+		{
           "name": "Realtek Ameba Boards (32-bits ARM Cortex-M3)",
           "architecture": "Ameba1",
           "version": "2.0.1-build20170508v2",
@@ -368,7 +367,7 @@
             }
           ]
         },
-        {
+		{
           "name": "Realtek Ameba Boards (32-bits ARM Cortex-M3)",
           "architecture": "Ameba1",
           "version": "2.0.0-build20170316",
@@ -400,7 +399,7 @@
       ],
 
       "tools": [
-        {
+		{
            "name":"ameba_1_arm-none-eabi-gcc",
            "version":"4.8.3-2014q1",
            "systems":[
