@@ -740,6 +740,28 @@
 #define MBEDTLS_ECP_NIST_OPTIM
 
 /**
+ * \def MBEDTLS_ECP_NO_INTERNAL_RNG
+ *
+ * When this option is disabled, mbedtls_ecp_mul() will make use of an
+ * internal RNG when called with a NULL \c f_rng argument, in order to protect
+ * against some side-channel attacks.
+ *
+ * This protection introduces a dependency of the ECP module on one of the
+ * DRBG modules. For very constrained implementations that don't require this
+ * protection (for example, because you're only doing signature verification,
+ * so not manipulating any secret, or because local/physical side-channel
+ * attacks are outside your threat model), it might be desirable to get rid of
+ * that dependency.
+ *
+ * \warning Enabling this option makes some uses of ECP vulnerable to some
+ * side-channel attacks. Only enable it if you know that's not a problem for
+ * your use case.
+ *
+ * Uncomment this macro to disable some counter-measures in ECP.
+ */
+#define MBEDTLS_ECP_NO_INTERNAL_RNG
+
+/**
  * \def MBEDTLS_ECP_RESTARTABLE
  *
  * Enable "non-blocking" ECC operations that can return early and be resumed.
@@ -3119,7 +3141,6 @@
  * incoming and outgoing I/O buffers.
  */
 #define MBEDTLS_SSL_MAX_CONTENT_LEN             6144 //4096 /**< Maxium fragment length in bytes, determines the size of each of the two internal I/O buffers */
-
 /** \def MBEDTLS_SSL_IN_CONTENT_LEN
  *
  * Maximum length (in bytes) of incoming plaintext fragments.
@@ -3237,7 +3258,7 @@
  *            on it, and considering stronger message digests instead.
  *
  */
-#define MBEDTLS_TLS_DEFAULT_ALLOW_SHA1_IN_KEY_EXCHANGE
+//#define MBEDTLS_TLS_DEFAULT_ALLOW_SHA1_IN_KEY_EXCHANGE
 
 /**
  * Uncomment the macro to let mbed TLS use your alternate implementation of

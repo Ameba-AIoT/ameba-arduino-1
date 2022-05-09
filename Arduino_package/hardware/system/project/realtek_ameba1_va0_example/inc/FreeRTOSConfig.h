@@ -94,8 +94,10 @@ extern uint32_t SystemCoreClock;
 
 #ifdef CONFIG_UVC
 #define configTOTAL_HEAP_SIZE			( ( size_t ) ( 110 * 1024 ) )	// use HEAP5
+
 #elif defined(ARDUINO_SDK)
-#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 60 * 1024 ) )	// use HEAP5
+#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 100 * 1024 ) )	// use HEAP5
+
 #else
 #define configTOTAL_HEAP_SIZE			( ( size_t ) ( 60 * 1024 ) )	// use HEAP5
 #endif

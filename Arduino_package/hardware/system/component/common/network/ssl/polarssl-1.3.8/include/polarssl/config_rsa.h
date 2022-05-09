@@ -1212,7 +1212,7 @@
  *          library/x509write_crt.c
  *          library/x509write_csr.c
  */
-//#define POLARSSL_ASN1_WRITE_C
+#define POLARSSL_ASN1_WRITE_C
 
 /**
  * \def POLARSSL_BASE64_C
@@ -1456,7 +1456,7 @@
  *
  * Requires: POLARSSL_BIGNUM_C and at least one POLARSSL_ECP_DP_XXX_ENABLED
  */
-//#define POLARSSL_ECP_C
+#define POLARSSL_ECP_C
 
 /**
  * \def POLARSSL_ENTROPY_C

@@ -20,6 +20,8 @@
 #define CHIP_ID_8710AM      0xFA
 #define CHIP_ID_SIP         0xF9  
 #define CHIP_ID_COMBO_SIP   0xF8
+#define CHIP_ID_SIP2        0xF7
+#define CHIP_ID_MICO100     0xF1
 
 enum _HAL_RESET_REASON{
 	REASON_DEFAULT_RST = 0,         /**< normal startup by power on */
