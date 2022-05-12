@@ -465,6 +465,17 @@ int wifi_set_lps_dtim(unsigned char dtim);
 int wifi_get_lps_dtim(unsigned char *dtim);
 
 /**
+ * @brief  Set Management Frame Protection Support.
+ * @param[in] value:
+ *				- NO_MGMT_FRAME_PROTECTION 		- not support
+ *				- MGMT_FRAME_PROTECTION_OPTIONAL 	- capable
+ *				- MGMT_FRAME_PROTECTION_REQUIRED 	- required
+ * @return  RTW_SUCCESS if setting Management Frame Protection Support successful.
+ * @return  RTW_ERROR otherwise.
+ */
+int wifi_set_mfp_support(unsigned char value);
+
+/**
  * @brief  Trigger Wi-Fi driver to start an infrastructure Wi-Fi network.
  * @warning If a STA interface is active when this function is called, the softAP will
  *          start on the same channel as the STA. It will NOT use the channel provided!

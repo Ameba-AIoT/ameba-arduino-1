@@ -56,6 +56,11 @@ int rltk_wlan_set_wps_phase(unsigned char is_trigger_wps);
 int rtw_ps_enable(int enable);
 int rltk_wlan_is_connected_to_ap(void);
 
+#ifdef CONFIG_IEEE80211W
+void rltk_wlan_tx_sa_query(unsigned char key_type);
+void rltk_wlan_tx_deauth(unsigned char b_broadcast, unsigned char key_type);
+void rltk_wlan_tx_auth(void);
+#endif
 
 #ifdef	__cplusplus
 }

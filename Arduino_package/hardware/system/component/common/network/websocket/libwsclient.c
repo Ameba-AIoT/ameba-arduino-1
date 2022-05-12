@@ -10,6 +10,9 @@
 static const char encode[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 			     "abcdefghijklmnopqrstuvwxyz0123456789+/";
 
+extern int max_data_len;
+extern int wsclient_recv_timeout;
+extern int wsclient_send_timeout;
 
 /***************Base Framing Protocol for reference*****************/
 //
@@ -94,7 +97,7 @@ static int ws_b64_encode_string(const char *in, int in_len, char *out, int out_s
 /*	Sec-WebSocket-Version: 13
 /*	Origin: http://example.com
 /************************************************************/
-static char *ws_handshake_header(char* host, char* path, char*origin, int port, int DefaultPort){
+static char *ws_handshake_header(char* host, char* path, char*origin, int port, char*extraHeader, int DefaultPort){
 	char key_b64[24], hash[16];
 	char *header;
 
@@ -107,36 +110,36 @@ static char *ws_handshake_header(char* host, char* path, char*origin, int port, 
 		if(DefaultPort == 1){
 			header = (char *) ws_malloc(strlen("GET /") + strlen(path) + strlen(" HTTP/1.1\r\nHost: ") 
 				+ strlen(host) + strlen("\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: ") 
-				+ sizeof(key_b64) + strlen("\r\nSec-WebSocket-Version: 13\r\n\r\n")); 
+				+ sizeof(key_b64) + strlen("\r\nSec-WebSocket-Version: 13\r\n")+strlen(extraHeader)+strlen("\r\n")); 
 
-			sprintf(header, "GET /%s HTTP/1.1\r\nHost: %s\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: %s\r\nSec-WebSocket-Version: 13\r\n\r\n", 
-			path, host, key_b64);
+			sprintf(header, "GET /%s HTTP/1.1\r\nHost: %s\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: %s\r\nSec-WebSocket-Version: 13\r\n%s\r\n", 
+			path, host, key_b64, extraHeader);
 		}
 		else{
 			header = (char *) ws_malloc(strlen("GET /") + strlen(path) + strlen(" HTTP/1.1\r\nHost: ") 
 				+ strlen(host) + strlen(":") + strlen(port) + strlen("\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: ") 
-				+ sizeof(key_b64) + strlen("\r\nSec-WebSocket-Version: 13\r\n\r\n")); 
+				+ sizeof(key_b64) + strlen("\r\nSec-WebSocket-Version: 13\r\n")+strlen(extraHeader)+strlen("\r\n")); 
 
-			sprintf(header, "GET /%s HTTP/1.1\r\nHost: %s:%d\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: %s\r\nSec-WebSocket-Version: 13\r\n\r\n", 
-			path, host, port, key_b64);
+			sprintf(header, "GET /%s HTTP/1.1\r\nHost: %s:%d\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: %s\r\nSec-WebSocket-Version: 13\r\n%s\r\n", 
+			path, host, port, key_b64, extraHeader);
 		}
 	}
 	else{
 		if(DefaultPort == 1){
 			header = (char *) ws_malloc(strlen("GET /") + strlen(path) + strlen(" HTTP/1.1\r\nHost: ") 
 				+ strlen(host) + strlen("\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nOrigin: ") + strlen(origin) + 
-				strlen("\r\nSec-WebSocket-Key: ") + sizeof(key_b64) + strlen("\r\nSec-WebSocket-Version: 13\r\n\r\n")); 
+				strlen("\r\nSec-WebSocket-Key: ") + sizeof(key_b64) + strlen("\r\nSec-WebSocket-Version: 13\r\n")+strlen(extraHeader)+strlen("\r\n")); 
 
-			sprintf(header, "GET /%s HTTP/1.1\r\nHost: %s\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nOrigin: %s\r\nSec-WebSocket-Key: %s\r\nSec-WebSocket-Version: 13\r\n\r\n", 
-			path, host, origin, key_b64);
+			sprintf(header, "GET /%s HTTP/1.1\r\nHost: %s\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nOrigin: %s\r\nSec-WebSocket-Key: %s\r\nSec-WebSocket-Version: 13\r\n%s\r\n", 
+			path, host, origin, key_b64, extraHeader);
 		}
 		else{
 			header = (char *) ws_malloc(strlen("GET /") + strlen(path) + strlen(" HTTP/1.1\r\nHost: ") 
 				+ strlen(host) + strlen(":") + strlen(port) + strlen("\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nOrigin: ") + strlen(origin) + 
-				strlen("\r\nSec-WebSocket-Key: ") + sizeof(key_b64) + strlen("\r\nSec-WebSocket-Version: 13\r\n\r\n")); 
+				strlen("\r\nSec-WebSocket-Key: ") + sizeof(key_b64) + strlen("\r\nSec-WebSocket-Version: 13\r\n")+strlen(extraHeader)+strlen("\r\n")); 
 
-			sprintf(header, "GET /%s HTTP/1.1\r\nHost: %s:%d\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nOrigin: %s\r\nSec-WebSocket-Key: %s\r\nSec-WebSocket-Version: 13\r\n\r\n", 
-			path, host, port, origin, key_b64);
+			sprintf(header, "GET /%s HTTP/1.1\r\nHost: %s:%d\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nOrigin: %s\r\nSec-WebSocket-Key: %s\r\nSec-WebSocket-Version: 13\r\n%s\r\n", 
+			path, host, port, origin, key_b64, extraHeader);
 		}
 	}
 
@@ -186,6 +189,7 @@ void ws_client_close(wsclient_context *wsclient)
 	wsclient->use_ssl = 0;
 	wsclient->port = 0;
 	wsclient->tx_len = 0;
+	wsclient->rx_len = 0;
 
 	if(wsclient->txbuf){
 		ws_free(wsclient->txbuf);
@@ -199,18 +203,26 @@ void ws_client_close(wsclient_context *wsclient)
 		ws_free(wsclient->receivedData);
 		wsclient->receivedData = NULL;
 	}	
-	if(wsclient->ssl){
-		ws_free(wsclient->ssl);
-		wsclient->ssl = NULL;
-	}	
+	if(wsclient->tls){
+		ws_free(wsclient->tls);
+		wsclient->tls = NULL;
+	}
+	if(wsclient->extraHeader){
+		ws_free(wsclient->extraHeader);
+		wsclient->extraHeader = NULL;
+	}
 	memset(wsclient->host, 0, 128);
 	memset(wsclient->path, 0, 128);
 	memset(wsclient->origin, 0, 128);
-
-	if(wsclient){
+/* remove by frankie  20190109 :
+     we can not free wsclient here(when dispatching this api in ws_poll,it returns void,upper layer thread continues polling wsclient  readyState,
+    it's value will be unstable if memory has been free)
+	if(wsclient)
 		ws_free(wsclient);
 		wsclient = NULL;
 	}
+*/
+
 }
 
 int ws_client_read(wsclient_context *wsclient, unsigned char *data, size_t data_len){
@@ -222,10 +234,10 @@ int ws_client_read(wsclient_context *wsclient, unsigned char *data, size_t data_
 	if (ret < 0) {
 		getsockopt(wsclient->sockfd, SOL_SOCKET, SO_ERROR, &err, &err_len);
 	}
-	if(ret < 0 && (err == EWOULDBLOCK || err == EAGAIN)) {
+	if(ret < 0 && (err == EWOULDBLOCK || err == EAGAIN || err == ENOMEM)) {
 		return 0;
 	}
-	else if(ret <= 0)
+	else if(ret < 0)
 		return -1;
 	else 
 		return ret;
@@ -240,10 +252,10 @@ int ws_client_send(wsclient_context *wsclient, unsigned char *data, size_t data_
 	if (ret < 0) {
 		getsockopt(wsclient->sockfd, SOL_SOCKET, SO_ERROR, &err, &err_len);
 	}
-	if(ret < 0 && (err == EWOULDBLOCK || err == EAGAIN)) {
+	if(ret < 0 && (err == EWOULDBLOCK || err == EAGAIN || err == ENOMEM)) {
 		return 0;
 	}
-	else if(ret <= 0)
+	else if(ret < 0)
 		return -1;
 	else 
 		return ret;
@@ -305,7 +317,7 @@ void ws_sendData(uint8_t type, size_t message_size, uint8_t* message, int useMas
 		}
 	}
 	
-	memset(wsclient->txbuf, 0, MAX_DATA_LEN + 16);
+	memset(wsclient->txbuf, 0, max_data_len + 16);
 	memcpy(wsclient->txbuf, header, header_len);
 	memcpy(wsclient->txbuf + header_len, message, message_size);
 	wsclient->tx_len = header_len + message_size;
@@ -348,6 +360,17 @@ int ws_hostname_connect(wsclient_context *wsclient) {
 			WSCLIENT_ERROR("ERROR: Setting socket option SO_REUSEADDR failed!\n");
 			return -1;
 		} 
+
+		if(wsclient_recv_timeout != 0)
+			if (ws_setsockopt_rcvtimeo(wsclient, wsclient_recv_timeout) < 0) {
+				WSCLIENT_ERROR("ERROR: set SO_RCVTIMEO fail\n");
+				return -1;
+			}
+		if(wsclient_send_timeout != 0)
+			if (ws_setsockopt_sndtimeo(wsclient, wsclient_send_timeout) < 0) {
+				WSCLIENT_ERROR("ERROR: set SO_SNDTIMEO fail\n");
+				return -1;
+			}
 		
 		if (connect(wsclient->sockfd, p->ai_addr, p->ai_addrlen) != SOCKET_ERROR) {
 			break;
@@ -368,7 +391,7 @@ int ws_client_handshake(wsclient_context *wsclient)
 		|| ((wsclient->use_ssl == 0) && (wsclient->port == 80)))
 		DefaultPort = 1;
 
-	char *header = ws_handshake_header(wsclient->host, wsclient->path, wsclient->origin, wsclient->port, DefaultPort);
+	char *header = ws_handshake_header(wsclient->host, wsclient->path, wsclient->origin, wsclient->port, wsclient->extraHeader, DefaultPort);
 	WSCLIENT_DEBUG("The header is %s\r\n which size is %d\r\n", header, strlen(header));
 
 	ret = wsclient->fun_ops.client_send(wsclient, header, strlen(header));
@@ -409,80 +432,52 @@ int ws_check_handshake(wsclient_context *wsclient)
 }
 
 #ifdef USING_SSL
-
-#define POLARSSL_ERR_NET_WANT_READ                         -0x0052  /**< Connection requires a read call. */
-#define POLARSSL_ERR_NET_WANT_WRITE                        -0x0054  /**< Connection requires a write call. */
-#define POLARSSL_ERR_NET_RECV_FAILED                       -0x004C  /**< Reading information from the socket failed. */
-
 int wss_hostname_connect(wsclient_context *wsclient){
 	int ret;
 	static int opt = 1, option = 1;
+//ssl connect
+	wsclient->sockfd = -1;
+	wsclient->tls = (void *)wss_tls_connect(&wsclient->sockfd, wsclient->host, wsclient->port);
 
-	wsclient->fun_ops.ssl_fun_ops.memory_set_own(ws_malloc, ws_free);
-
-//SSL connect
-	WSCLIENT_DEBUG("net_connect to %s:%d\n", wsclient->host, wsclient->port);
-
-	if((ret = wsclient->fun_ops.ssl_fun_ops.net_connect(&wsclient->sockfd, wsclient->host, wsclient->port)) != 0) {
-		WSCLIENT_ERROR("ERROR: net_connect failed ret(%d)\n", ret);
+	if(wsclient->tls == NULL){
+		WSCLIENT_ERROR("ERROR: ssl connect failed ret(%d)\n", ret);
 		goto exit;
 	}
-
-	WSCLIENT_DEBUG("net_connect ok\n");
-
+//set sock
 	if((ret = setsockopt(wsclient->sockfd, SOL_SOCKET, SO_KEEPALIVE, (const char *)&opt, sizeof(opt))) < 0){
 		WSCLIENT_ERROR("ERROR: setsockopt SO_KEEPALIVE failed ret(%d)\n", ret);
 		goto exit;
-
-	} 
+	}
 	if((ret = setsockopt(wsclient->sockfd, SOL_SOCKET, SO_REUSEADDR, (const char *)&option, sizeof(option))) < 0){
 		WSCLIENT_ERROR("ERROR: setsockopt SO_REUSEADDR failed ret(%d)\n", ret);
 		goto exit;
 	}
-	
-//SSL configuration
-	WSCLIENT_DEBUG("Do ssl_init\n");
-	
-	if((ret = wsclient->fun_ops.ssl_fun_ops.ssl_init(wsclient->ssl)) != 0) {
-		WSCLIENT_ERROR("ERROR: ssl_init failed ret(%d)\n", ret);
+
+	if(wsclient_recv_timeout != 0)
+		if (ws_setsockopt_rcvtimeo(wsclient, wsclient_recv_timeout) < 0) {
+			WSCLIENT_ERROR("ERROR: set SO_RCVTIMEO fail\n");
+			return -1;
+		}
+	if(wsclient_send_timeout != 0)
+		if (ws_setsockopt_sndtimeo(wsclient, wsclient_send_timeout) < 0) {
+			WSCLIENT_ERROR("ERROR: set SO_SNDTIMEO fail\n");
+			return -1;
+		}
+
+//ssl handshake
+	if((ret = wss_tls_handshake(wsclient->tls)) !=0 ){
+		WSCLIENT_ERROR("ERROR: ssl handshake failed ret(%d)\n", ret);
 		goto exit;
 	}
-	
-	WSCLIENT_DEBUG("ssl_init ok\n");
-	
-	wsclient->fun_ops.ssl_fun_ops.ssl_set_endpoint(wsclient->ssl, 0);
-	wsclient->fun_ops.ssl_fun_ops.ssl_set_authmode(wsclient->ssl, 0);
-	wsclient->fun_ops.ssl_fun_ops.ssl_set_rng(wsclient->ssl, ws_random, NULL);
-	wsclient->fun_ops.ssl_fun_ops.ssl_set_bio(wsclient->ssl, wsclient->fun_ops.ssl_fun_ops.net_recv, &wsclient->sockfd, wsclient->fun_ops.ssl_fun_ops.net_send, &wsclient->sockfd);
-		
-//SSL handshake
-	WSCLIENT_DEBUG("Do ssl_handshake\n");
-	
-	if((ret = wsclient->fun_ops.ssl_fun_ops.ssl_handshake(wsclient->ssl)) != 0) {
-		WSCLIENT_ERROR("ERROR: ssl_handshake failed ret(-0x%x)\n", -ret);
-		goto exit;
-	}
-	
-	WSCLIENT_DEBUG("ssl_handshake ok\n");
 	return 0;
-	
 exit:
-	if(wsclient->sockfd != -1) {
-		wsclient->fun_ops.ssl_fun_ops.net_close(wsclient->sockfd);
-		wsclient->sockfd = -1;
-	}
-	wsclient->fun_ops.ssl_fun_ops.ssl_free(wsclient->ssl);
+	wss_tls_close(wsclient->tls, &wsclient->sockfd);
 	return -1;
 }
 
 void wss_client_close(wsclient_context *wsclient)
 {
-	if(wsclient->sockfd != -1) {
-		wsclient->fun_ops.ssl_fun_ops.net_close(wsclient->sockfd);
-		wsclient->sockfd = -1;
-	}
-	if(wsclient->ssl)
-		wsclient->fun_ops.ssl_fun_ops.ssl_free(wsclient->ssl);
+	wss_tls_close(wsclient->tls, &wsclient->sockfd);
 
 	wsclient->readyState = CLOSED;
 	wsclient->use_ssl = 0;
@@ -502,38 +497,64 @@ void wss_client_close(wsclient_context *wsclient)
 		ws_free(wsclient->receivedData);
 		wsclient->receivedData = NULL;
 	}	
+	if(wsclient->extraHeader){
+		ws_free(wsclient->extraHeader);
+		wsclient->extraHeader = NULL;
+	}
 	memset(wsclient->host, 0, 128);
 	memset(wsclient->path, 0, 128);
 	memset(wsclient->origin, 0, 128);
-
-	if(wsclient){
+/* remove by frankie  20190109 :
+     we can not free wsclient here(when dispatching this api in ws_poll,it returns void,upper layer thread continues polling wsclient  readyState,
+    it's value will be unstable if memory has been free)
+	if(wsclient)
 		ws_free(wsclient);
 		wsclient = NULL;
 	}
+*/
+
+
 }
 
 int wss_client_read(wsclient_context *wsclient, unsigned char *data, size_t data_len){
 	int ret = 0;
-	ret = wsclient->fun_ops.ssl_fun_ops.ssl_read(wsclient->ssl, data, data_len);
-	if(ret < 0 && (ret == POLARSSL_ERR_NET_WANT_READ || ret == POLARSSL_ERR_NET_WANT_WRITE 
-	|| ret == POLARSSL_ERR_NET_RECV_FAILED)) 
+
+	ret = wss_tls_read(wsclient->tls, data, data_len);
+	int err = 0;
+	int err_len = sizeof(err);
+	
+	if (ret < 0) {
+		getsockopt(wsclient->sockfd, SOL_SOCKET, SO_ERROR, &err, &err_len);
+	}
+	if(ret < 0 && (err == EWOULDBLOCK || err == EAGAIN || err == ENOMEM)) {
 		return 0;
-	else if(ret <= 0){
+	}
+	else if(ret < 0){
 		WSCLIENT_DEBUG("ssl_read failed, return: %d", ret);
 		return -1;
 	}
-	else
+	else 
 		return ret;
 }
 
 int wss_client_send(wsclient_context *wsclient, unsigned char *data, size_t data_len){
 	int ret = 0;
-	ret = wsclient->fun_ops.ssl_fun_ops.ssl_write(wsclient->ssl, data, data_len);
-	if(ret < 0 && (ret == POLARSSL_ERR_NET_WANT_READ || ret == POLARSSL_ERR_NET_WANT_WRITE )) 
+
+	ret = wss_tls_write(wsclient->tls, data, data_len);
+	int err = 0;
+	int err_len = sizeof(err);
+	
+	if (ret < 0) {
+		getsockopt(wsclient->sockfd, SOL_SOCKET, SO_ERROR, &err, &err_len);
+	}
+	if(ret < 0 && (err == EWOULDBLOCK || err == EAGAIN || err == ENOMEM)) {
 		return 0;
-	else if(ret <= 0)
+	}
+	else if(ret < 0){
+		WSCLIENT_DEBUG("ssl_write failed, return: %d", ret);
 		return -1;
-	else
+	}
+	else 
 		return ret;
 }
 #endif

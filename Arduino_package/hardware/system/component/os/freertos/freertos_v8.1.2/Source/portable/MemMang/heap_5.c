@@ -174,14 +174,9 @@ HeapRegion_t xHeapRegions[] =
 {
 	{ (uint8_t*)0x10002300, 0x3D00 }, 	// Image1 recycle heap
 	{ ucHeap, sizeof(ucHeap) },	        // Defines a block from ucHeap
-
 #if 0
-//zzw arduino
-#if !defined(CONFIG_PLATFORM_8710AF)
 	{ (uint8_t*)0x301b5000, 300*1024 },	// SDRAM heap
 #endif
-#endif
-
 #ifdef ARDUINO_SDK
     /**
      * Reserve 2 regions for Arduino SDK.

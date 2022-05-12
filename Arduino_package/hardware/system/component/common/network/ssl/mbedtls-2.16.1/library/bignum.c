@@ -242,6 +242,37 @@ void mbedtls_mpi_swap( mbedtls_mpi *X, mbedtls_mpi *Y )
 }
 
 /*
+ * Conditionally assign dest = src, without leaking information
+ * about whether the assignment was made or not.
+ * dest and src must be arrays of limbs of size n.
+ * assign must be 0 or 1.
+ */
+static void mpi_safe_cond_assign( size_t n,
+                                  mbedtls_mpi_uint *dest,
+                                  const mbedtls_mpi_uint *src,
+                                  unsigned char assign )
+{
+    size_t i;
+
+    /* MSVC has a warning about unary minus on unsigned integer types,
+     * but this is well-defined and precisely what we want to do here. */
+#if defined(_MSC_VER)
+#pragma warning( push )
+#pragma warning( disable : 4146 )
+#endif
+
+    /* all-bits 1 if assign is 1, all-bits 0 if assign is 0 */
+    const mbedtls_mpi_uint mask = -assign;
+
+#if defined(_MSC_VER)
+#pragma warning( pop )
+#endif
+
+    for( i = 0; i < n; i++ )
+        dest[i] = ( src[i] & mask ) | ( dest[i] & ~mask );
+}
+
+/*
  * Conditionally assign X = Y, without leaking information
  * about whether the assignment was made or not.
  * (Leaking information about the respective sizes of X and Y is ok however.)
@@ -1806,14 +1837,20 @@ static int mpi_montmul( mbedtls_mpi *A, const mbedtls_mpi *B, const mbedtls_mpi 
 
     memcpy( A->p, d, ( n + 1 ) * ciL );
 
-    if( mbedtls_mpi_cmp_abs( A, N ) >= 0 )
-        mpi_sub_hlp( n, N->p, A->p );
-    else
-        /* prevent timing attacks */
-        mpi_sub_hlp( n, A->p, T->p );
+    /* If A >= N then A -= N. Do the subtraction unconditionally to prevent
+     * timing attacks. */
+    /* Set d to A + (2^biL)^n - N. */
+    d[n] += 1;
+    mpi_sub_hlp( n, N->p, d );
+    /* Now d - (2^biL)^n = A - N so d >= (2^biL)^n iff A >= N.
+     * So we want to copy the result of the subtraction iff d->p[n] != 0.
+     * Note that d->p[n] is either 0 or 1 since A - N <= N <= (2^biL)^n. */
+    mpi_safe_cond_assign( n + 1, A->p, d, d[n] );
+    A->p[n] = 0;
 
     return( 0 );
 }
+
 
 /*
  * Montgomery reduction: A = A * R^-1 mod N
@@ -1855,6 +1892,10 @@ int mbedtls_mpi_exp_mod( mbedtls_mpi *X, const mbedtls_mpi *A,
 
     if( mbedtls_mpi_cmp_int( E, 0 ) < 0 )
         return( MBEDTLS_ERR_MPI_BAD_INPUT_DATA );
+
+    if( mbedtls_mpi_bitlen( E ) > MBEDTLS_MPI_MAX_BITS ||
+        mbedtls_mpi_bitlen( N ) > MBEDTLS_MPI_MAX_BITS )
+        return ( MBEDTLS_ERR_MPI_BAD_INPUT_DATA );
 
     /*
      * Init temps and window size

@@ -358,7 +358,7 @@ typedef	long long __i64;
 #define SIOCSIWENCODEEXT 0x8B34		/* set encoding token & mode */
 #define SIOCGIWENCODEEXT 0x8B35		/* get encoding token & mode */
 
-/* WPA2 : PMKSA cache management */
+/* WPA2/WPA3 : Set PMKSA Cache Management Enable */
 #define SIOCSIWPMKSA	0x8B36		/* PMKSA cache operation */
 
 /* Send Mgnt Frame or Action Frame */
@@ -366,6 +366,23 @@ typedef	long long __i64;
 
 /* Send WPS EAPOL Frame */
 #define SIOCSIWEAPOLSEND	0x8B38		/* Send WPS EAPOL Frame */
+
+/* Get SNR */
+#define SIOCGIWSNR	0x8B39
+/* Get rssiBCN */
+#define SIOCGIWBCNSENS	0x8B40
+
+/* Set Management Frame Protection Support */
+#define SIOCSIWMFP	0x8B3A		/* Set Management Frame Protection Support */
+
+/* Set Finite cyclic groups id for SAE  */
+#define SIOCSIWGRPID	0x8B3B		/* Set Finite cyclic groups id for SAE  */
+
+#define SIOCSIWSYNCSET      0x8B3C      /* Set Syncpkt */
+#define SIOCSIWSYNCDASET    0x8B3D      /* Set Syncpkt DA*/
+#define SIOCSIWSYNCFWIPS    0x8B3E      /* Disable FW IPS */
+
+
 /* -------------------- DEV PRIVATE IOCTL LIST -------------------- */
 
 /* These 32 ioctl are wireless device private, for 16 commands.
@@ -645,6 +662,7 @@ typedef	long long __i64;
 #define IW_AUTH_ALG_OPEN_SYSTEM	0x00000001
 #define IW_AUTH_ALG_SHARED_KEY	0x00000002
 #define IW_AUTH_ALG_LEAP	0x00000004
+#define IW_AUTH_ALG_SAE			0x00000008
 
 /* IW_AUTH_ROAMING_CONTROL values */
 #define IW_AUTH_ROAMING_ENABLE	0	/* driver/firmware based roaming */
@@ -658,6 +676,9 @@ typedef	long long __i64;
 #define IW_ENCODE_ALG_WEP	1
 #define IW_ENCODE_ALG_TKIP	2
 #define IW_ENCODE_ALG_CCMP	3
+#define IW_ENCODE_ALG_PMK   4
+#define IW_ENCODE_ALG_AES_CMAC  5 //IGTK
+
 /* struct iw_encode_ext ->ext_flags */
 #define IW_ENCODE_EXT_TX_SEQ_VALID	0x00000001
 #define IW_ENCODE_EXT_RX_SEQ_VALID	0x00000002
@@ -1206,4 +1227,6 @@ struct iw_event
 #define IW_EVT_STR_STA_DISASSOC	"STA Disassoc"
 #define IW_EVT_STR_SEND_ACTION_DONE	"Send Action Done"
 #define IW_EVT_STR_NO_NETWORK "No Assoc Network After Scan Done"
+#define IW_EVT_STR_ICV_ERROR "ICV Eror"
+#define IW_EVT_STR_CHALLENGE_FAIL "Auth Challenge Fail"
 #endif	/* _LINUX_WIRELESS_H */

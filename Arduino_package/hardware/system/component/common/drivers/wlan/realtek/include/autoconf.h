@@ -156,6 +156,18 @@
 #endif
 //#define AP_PSK_SUPPORT_TKIP
 
+#if !defined(ARDUINO_SDK)
+#define CONFIG_PMKSA_CACHING
+
+/* For WPA3 */
+#define CONFIG_IEEE80211W
+#define CONFIG_SAE_SUPPORT
+#ifdef CONFIG_SAE_SUPPORT
+#define CONFIG_SAE_DH_SUPPORT 1
+#define ALL_DH_GROUPS
+#endif
+#endif
+
 /* For promiscuous mode */
 #define CONFIG_PROMISC
 #ifdef CONFIG_PROMISC

@@ -2,6 +2,15 @@
 #define EASYWSCLIENT_H
 #include <platform/platform_stdlib.h>
 
+#define WSCLIENT_TLS_POLARSSL       0    /*!< Use PolarSSL for TLS when WSCLIENT */
+#define WSCLIENT_TLS_MBEDTLS        1    /*!< Use mbedTLS for TLS when WSCLIENT */
+
+#if CONFIG_USE_POLARSSL
+#define WSCLIENT_USE_TLS            WSCLIENT_TLS_POLARSSL
+#elif CONFIG_USE_MBEDTLS
+#define WSCLIENT_USE_TLS            WSCLIENT_TLS_MBEDTLS
+#endif
+
 /****************Define the debug message level*********************/
 #define DEBUG_WSCLIENT    1
 
@@ -44,36 +53,12 @@ struct wsheader_type{
 };
 
 struct _wsclient_context;
-struct _ssl_context;
-
-struct ssl_fun_ops{
-	int (*memory_set_own)( void * (*malloc_func)( size_t ),void (*free_func)( void * ) );
-	int (*net_connect)( int *fd, const char *host, int port );
-	int (*ssl_init)( struct _ssl_context *ssl );
-	void (*ssl_set_endpoint)( struct _ssl_context *ssl, int endpoint );
-	void (*ssl_set_authmode)( struct _ssl_context *ssl, int authmode );
-	void (*ssl_set_rng)( struct _ssl_context *ssl,
-                  int (*f_rng)(void *, unsigned char *, size_t),
-                  void *p_rng );
-	void (*ssl_set_bio)( struct _ssl_context *ssl,
-        int (*f_recv)(void *, unsigned char *, size_t), void *p_recv,
-        int (*f_send)(void *, const unsigned char *, size_t), void *p_send );
-	int (*ssl_handshake)( struct _ssl_context *ssl );
-	void (*net_close)( int fd );
-	void (*ssl_free)( struct _ssl_context *ssl );
-	int (*ssl_read)( struct _ssl_context *ssl, unsigned char *buf, size_t len );
-	int (*ssl_write)( struct _ssl_context *ssl, const unsigned char *buf, size_t len );
-	const char *(*ssl_get_ciphersuite)( const struct _ssl_context *ssl );
-	int (*net_recv)( void *ctx, unsigned char *buf, size_t len );
-	int (*net_send)( void *ctx, const unsigned char *buf, size_t len );
-};
 
 struct ws_fun_ops{
 	int (*hostname_connect)(struct _wsclient_context *wsclient);
 	void (*client_close)(struct _wsclient_context *wsclient);
 	int (*client_send)(struct _wsclient_context *wsclient, unsigned char *data, size_t data_len);
 	int (*client_read)(struct _wsclient_context *wsclient, unsigned char *data, size_t data_len);
-	struct ssl_fun_ops ssl_fun_ops;
 };
 
 typedef struct _wsclient_context{
@@ -85,11 +70,13 @@ typedef struct _wsclient_context{
 	int sockfd;
 	readyStateValues readyState;
 	int tx_len;
-	void *ssl;
+	int rx_len;
+	void *tls;
 	uint8_t *txbuf;
 	uint8_t *rxbuf;
 	uint8_t *receivedData;
 	struct ws_fun_ops fun_ops;
+	char *extraHeader;
 }wsclient_context;
 /*******************************************************************/
 
@@ -115,6 +102,11 @@ int wss_hostname_connect(wsclient_context *wsclient);
 int wss_client_read(wsclient_context *wsclient, unsigned char *data, size_t data_len);
 int wss_client_send(wsclient_context *wsclient, unsigned char *data, size_t data_len);
 void wss_client_close(wsclient_context *wsclient);
+void *wss_tls_connect(int *sock , char *host, int port);
+int wss_tls_handshake(void *tls_in);
+void wss_tls_close(void *tls_in,int *sock);
+int wss_tls_write(void *tls_in, char *request, int request_len);
+int wss_tls_read(void *tls_in, char *buffer, int buf_len);
 /*******************************************************************/
 
 #endif

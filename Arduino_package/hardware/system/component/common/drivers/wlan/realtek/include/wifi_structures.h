@@ -123,7 +123,7 @@ typedef struct rtw_wifi_setting {
 	unsigned char 		ssid[33];
 	unsigned char		channel;
 	rtw_security_t		security_type;
-	unsigned char 		password[65];
+	unsigned char 		password[RTW_MAX_PSK_LEN+1];
 	unsigned char		key_idx;
 }rtw_wifi_setting_t;
 #if defined(__IAR_SYSTEMS_ICC__)

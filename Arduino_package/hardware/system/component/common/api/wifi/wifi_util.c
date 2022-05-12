@@ -117,6 +117,69 @@ int wext_set_auth_param(const char *ifname, __u16 idx, __u32 value)
 	return ret;
 }
 
+int wext_set_mfp_support(const char *ifname, __u8 value)
+{
+	int ret = 0;
+	struct iwreq iwr;
+
+	memset(&iwr, 0, sizeof(iwr));
+	iwr.u.param.value = value;
+
+	if (iw_ioctl(ifname, SIOCSIWMFP, &iwr) < 0) {
+		RTW_API_INFO(("\n\rWEXT: SIOCSIWMFP(value 0x%x) failed)", value));
+	}
+
+	return ret;
+}
+
+#ifdef CONFIG_SAE_SUPPORT
+int wext_set_group_id(const char *ifname, __u8 value)
+{
+	int ret = 0;
+	struct iwreq iwr;
+
+	memset(&iwr, 0, sizeof(iwr));
+	iwr.u.param.value = value;
+
+	if (iw_ioctl(ifname, SIOCSIWGRPID, &iwr) < 0) {
+		RTW_API_INFO(("\n\rWEXT: SIOCSIWGRPID(value 0x%x) failed)", value));
+	}
+
+	return ret;
+}
+
+extern u8 rtw_cmd_tsk_spt_wap3;
+
+int wext_set_support_wpa3(__u8 enable)
+{
+	rtw_cmd_tsk_spt_wap3 = enable;
+	return 0;
+}
+
+__u8 wext_get_support_wpa3(void)
+{
+	return rtw_cmd_tsk_spt_wap3;
+}
+
+#endif
+
+#ifdef CONFIG_PMKSA_CACHING
+int wext_set_pmk_cache_enable(const char *ifname, __u8 value)
+{
+	int ret = 0;
+	struct iwreq iwr;
+
+	memset(&iwr, 0, sizeof(iwr));
+	iwr.u.param.value = value;
+
+	if (iw_ioctl(ifname, SIOCSIWPMKSA, &iwr) < 0) {
+		RTW_API_INFO(("\n\rWEXT: SIOCSIWPMKSA(value 0x%x) failed)", value));
+	}
+
+	return ret;
+}
+#endif
+
 int wext_set_key_ext(const char *ifname, __u16 alg, const __u8 *addr, int key_idx, int set_tx, const __u8 *seq, __u16 seq_len, __u8 *key, __u16 key_len)
 {
 	struct iwreq iwr;
@@ -673,7 +736,7 @@ int wext_set_pscan_channel(const char *ifname, __u8 *ch, __u8 *pscan_config, __u
 	*(para+12) = length;
 	for(i = 0; i < length; i++){
 		*(para + 13 + i)= *(ch + i);
-		*((__u16*) (para + 13 + length + i))= *(pscan_config + i);
+		*(para + 13 + length + i)= *(pscan_config + i);
 	}
 	
 	iwr.u.data.pointer = para;

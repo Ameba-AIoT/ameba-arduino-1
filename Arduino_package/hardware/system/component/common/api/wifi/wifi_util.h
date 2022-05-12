@@ -15,6 +15,15 @@ int wext_set_ssid(const char *ifname, const __u8 *ssid, __u16 ssid_len);
 int wext_set_bssid(const char *ifname, const __u8 *bssid);
 int wext_get_bssid(const char *ifname, __u8 *bssid);
 int wext_set_auth_param(const char *ifname, __u16 idx, __u32 value);
+int wext_set_mfp_support(const char *ifname, __u8 value);
+#ifdef CONFIG_SAE_SUPPORT
+int wext_set_group_id(const char *ifname, __u8 value);
+int wext_set_support_wpa3(__u8 enable);
+__u8 wext_get_support_wpa3(void);
+#endif
+#ifdef CONFIG_PMKSA_CACHING
+int wext_set_pmk_cache_enable(const char *ifname, __u8 value);
+#endif
 int wext_set_key_ext(const char *ifname, __u16 alg, const __u8 *addr, int key_idx, int set_tx, const __u8 *seq, __u16 seq_len, __u8 *key, __u16 key_len);
 int wext_get_enc_ext(const char *ifname, __u16 *alg, __u8 *key_idx, __u8 *passphrase);
 int wext_set_passphrase(const char *ifname, const __u8 *passphrase, __u16 passphrase_len);
