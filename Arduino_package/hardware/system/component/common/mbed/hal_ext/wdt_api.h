@@ -54,6 +54,8 @@ void watchdog_stop(void);
  */
 void watchdog_refresh(void);
 
+void watchdog_irq_init(wdt_irq_handler handler, uint32_t id);
+
 #ifdef __cplusplus
 }
 #endif
