@@ -6,7 +6,9 @@ Or you can follow steps to setup.
 
 1. Arduino IDE 1.6.5 support third party hardware by providing hardware configuration.
 You need add Ameba's configuration in "File" -> "Preferences".
-And fill below URL in "Additional Boards Manager URLs:" https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/package_realtek.com_ameba1_index.json
+And fill below URL in "Additional Boards Manager URLs:
+  https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/package_realtek_ameba1_index.json 
+  or https://github.com/ambiot/amb1_arduino/raw/master/Arduino_package/package_realtek.com_ameba1_index.json
 
 We also suggest to enable "Show verbose output" options on "compilation" and "upload" in Preference.
 
