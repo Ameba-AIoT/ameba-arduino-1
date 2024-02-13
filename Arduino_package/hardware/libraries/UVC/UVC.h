@@ -89,19 +89,19 @@ public:
     /**
      * @brief Check if UVC is ready
      *
-     * @return True if UVC is ready. And false vise versa.
+     * @return True if UVC is ready. And false vice versa.
      */
     int available();
 
     /**
      * @brief Check if UVC is currently streaming
      *
-     * @return True if UVC is in streaming. And false vise versa.
+     * @return True if UVC is in streaming. And false vice versa.
      */
     int status();
 
     /**
-     * @brief Enable straming
+     * @brief Enable streaming
      *
      * If the UVC is turned off stream. Call this function can turn on streaming
      *
@@ -110,9 +110,9 @@ public:
     int  turnOn();
 
     /**
-     * @brief Disable straming
+     * @brief Disable streaming
      *
-     * Disble streaming without deinitialize UVC.
+     * Disable streaming without deinitialize UVC.
      */
     void turnOff();
 

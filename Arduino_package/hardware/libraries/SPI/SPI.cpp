@@ -199,7 +199,7 @@ void SPIClass::setDataMode(uint8_t _pin, uint8_t _mode)
 
 void SPIClass::setClockDivider(uint8_t _pin, uint8_t _divider)
 {
-    // no affact in Ameba
+    // no affect in Ameba
 }
 
 void SPIClass::setBitOrder(BitOrder _order)
@@ -214,7 +214,7 @@ void SPIClass::setDataMode(uint8_t _mode)
 
 void SPIClass::setClockDivider(uint8_t _div)
 {
-    // no affact in Ameba
+    // no affect in Ameba
 }
 
 void SPIClass::setDefaultFrequency(int _frequency)

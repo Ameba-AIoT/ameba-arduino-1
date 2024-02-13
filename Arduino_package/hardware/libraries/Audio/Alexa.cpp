@@ -62,7 +62,7 @@ static i2s_t i2s_obj;
 /**
  * The wakeup pin.
  *
- * When ALC5680 reconize the wakeup word it will toggle this pin
+ * When ALC5680 recognize the wakeup word it will toggle this pin
  */
 #define GPIO_IRQ_VOICE_PIN              PC_5
 static gpio_irq_t gpio_audio;
@@ -94,7 +94,7 @@ static gtimer_t timer_led;
 
 // The mp3 download from AVS has 1152 bytes decoded in each frame
 #define ALEXA_I2S_DMA_PAGE_SIZE         1152
-#define ALEXA_I2S_DMA_PAGE_NUM          4   // Vaild number is 2~4
+#define ALEXA_I2S_DMA_PAGE_NUM          4   // Valid number is 2~4
 
 // DMA buffer for I2S
 SDRAM_BSS_SECTION static uint8_t i2s_tx_buf[ALEXA_I2S_DMA_PAGE_SIZE*ALEXA_I2S_DMA_PAGE_NUM];
@@ -134,7 +134,7 @@ static xQueueHandle content_queue;
  * Cached mp3 data.
  *
  * When play mp3 data, the source data may not complete and need further data to decode.
- * We use this varaible to cache the un-decoded data
+ * We use this variable to cache the un-decoded data
  */
 #define DIALOG_DATA_CACHE_SIZE      (16384+4096)
 uint32_t dialog_data_len = 0;
@@ -246,7 +246,7 @@ static void init_alexa_i2s()
 }
 
 /**
- * The Audio callback fucntion as AVS audio part is ready for initiialize.
+ * The Audio callback function as AVS audio part is ready for initialize.
  */
 static void init_audio_codec()
 {
@@ -460,7 +460,7 @@ static void do_alert()
         }
 
         if ((ptx_buf = i2s_get_tx_page(&i2s_obj)) == NULL) {
-            // alerts has less priorty than dialog. We should break here to check if we have dialog came in
+            // alerts has less priority than dialog. We should break here to check if we have dialog came in
             vTaskDelay(ALEXA_AUDIO_I2S_TX_BUF_DELAY);
             break;
         }

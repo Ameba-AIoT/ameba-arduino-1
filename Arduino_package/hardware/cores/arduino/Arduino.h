@@ -100,7 +100,7 @@ typedef struct _PinDescription
 
 } PinDescription ;
 
-/* Pins table to be instanciated into variant.cpp */
+/* Pins table to be instantiated into variant.cpp */
 extern PinDescription g_APinDescription[];
 
 #ifdef __cplusplus

@@ -4,9 +4,9 @@
    decrease receiving timeout.
    This sketch separate into two parts:
    The first part is Arduino code which play receiver role.
-   The second part is PC code wich play sender role. Please compile the second part and run it.
+   The second part is PC code with play sender role. Please compile the second part and run it.
 
-   You can open Serial Plotter to check the change behavor of timeout value.
+   You can open Serial Plotter to check the change behavior of timeout value.
    The meaning of timeout value depends on the sending frequency from sender side.
    If the sender side send packets frequently, then the Arduino side can have smaller receiving timeout value
 */

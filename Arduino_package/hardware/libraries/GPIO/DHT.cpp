@@ -142,7 +142,7 @@ boolean DHT::read(bool force) {
   // Send start signal.  See DHT datasheet for full signal diagram:
   //   http://www.adafruit.com/datasheets/Digital%20humidity%20and%20temperature%20sensor%20AM2302.pdf
 
-  // Go into high impedence state to let pull-up raise data line level and
+  // Go into high impedance state to let pull-up raise data line level and
   // start the reading process.
   digitalWrite(_pin, HIGH);
   delay(250);

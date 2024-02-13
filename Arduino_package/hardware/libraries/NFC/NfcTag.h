@@ -24,7 +24,7 @@
 #define RTK_NFC_UID 0x58
 
 /*
- * @brief Total available memroy size
+ * @brief Total available memory size
  *
  * In NFC Tag, 1 page equals 4 bytes. In Ameba there are 36 pages available which means there are total 36 x 4 = 144 bytes.
  * These are used as tag header, payload header, and payload itself.
@@ -49,11 +49,11 @@
 #define TNF_MESSAGE_BEGIN                0x80
 /** The last NDEF message. */
 #define TNF_MESSAGE_END                  0x40
-/** For cases that NDEF message is seperated into several parts. It shell not be used in Ameba */
+/** For cases that NDEF message is separated into several parts. It shell not be used in Ameba */
 #define TNF_MESSAGE_CHUNK_FLAG           0x20
 /** For message less than 256 bytes. In Ameba it's always set to 1. */
 #define TNF_MESSAGE_SHORT_RECORD         0x10
-/** If this is set, ther there will be 1 byte ID information append after field payload length. In Ameba it's not enabled */
+/** If this is set, there will be 1 byte ID information append after field payload length. In Ameba it's not enabled */
 #define TNF_MESSAGE_ID_LENGTH_IS_PRESENT 0x08
 /** @} */ // end of tnf_message_type
 
@@ -222,7 +222,7 @@ public:
     void appendAndroidPlayApp(const char *appName);
 
     /**
-     * @brief Clear catched NDEF records in NfcTag object
+     * @brief Clear caught NDEF records in NfcTag object
      *
      * @note Clear NDEF only clear cached NDEF records in this object. It won't affect the NFC firmware
      */
@@ -233,7 +233,7 @@ public:
      *
      * It will check the content of nfc_tag_content and verify UID field.
      *
-     * @return Return true if valid. And false vise sersa.
+     * @return Return true if valid. And false vice sersa.
      */
     bool isUidValid();
 
@@ -246,7 +246,7 @@ public:
     void convertNdefToRaw();
 
     /**
-     * @brief Conver the content of nfc_tag_content into NDEF messages
+     * @brief Convert the content of nfc_tag_content into NDEF messages
      *
      * It tries to extract and convert the content of nfc_tag_content into NDEF message.
      * We expect the content of nfc_tag_content is in the format of NFC Tag Type2

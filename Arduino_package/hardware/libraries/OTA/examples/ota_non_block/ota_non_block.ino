@@ -74,6 +74,6 @@ void ota_thread(const void *argument) {
     delay(10000);
   }
 
-  // This line is not expected to be executed because if OTA success it would reboot device immediatedly.
+  // This line is not expected to be executed because if OTA success it would reboot device immediately.
   os_thread_terminate( os_thread_get_id() );
 }

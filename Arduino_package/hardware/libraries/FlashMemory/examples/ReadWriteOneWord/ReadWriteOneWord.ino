@@ -1,5 +1,5 @@
 /*
- This sketch shows how to request flash memory larger than defaut 4K, and read/write one specific word.
+ This sketch shows how to request flash memory larger than default 4K, and read/write one specific word.
  */
 
 #include <FlashMemory.h>

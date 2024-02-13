@@ -39,7 +39,7 @@ PubSubClient client(mqttServer, 1883, callback, wifiClient);
 // Callback function
 void callback(char* topic, byte* payload, unsigned int length) {
   // In order to republish this payload, a copy must be made
-  // as the orignal payload buffer will be overwritten whilst
+  // as the original payload buffer will be overwritten whilst
   // constructing the PUBLISH packet.
 
   // Allocate the correct amount of memory for the payload copy

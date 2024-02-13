@@ -2,9 +2,9 @@
  This sketch shows how to use LASS with power saving.
  The power source use solar panel and Li-Po battery.
 
- The precedure is as below:
+ The procedure is as below:
  1. Setup watchdog:
-    Sometimes the hardware or dirver may hit unexpected fault and invoke hardfault.
+    Sometimes the hardware or driver may hit unexpected fault and invoke hardfault.
     In this situation only watchdog and reset system. We enable 2s watch dog and feed it in 1s GTimer
     handler. If the whole process exceend "measurement_timeout" then we just disable watchdog and
     enter deepsleep.
@@ -16,7 +16,7 @@
 	Try to read humidity and temperature. Use previous data if failed.
  5. Setup NFC:
 	Prepare NFC NDEF data. There are 2 NDEF records.
-	(a) The first one is for android applicaton. This NDEF record will trigger event and lunch
+	(a) The first one is for android application. This NDEF record will trigger event and lunch
         application accordingly.
     (b) The second one is text data with this format:
 			device:FT_LIVE_12345678,h:34.0,t:27.0
@@ -26,7 +26,7 @@
 	Assume the time content in RTC has timezone calibrated. We need use UTC for LASS usage.
  7. Prepare LASS payload data
  8. Connect to WiFi
-	Enbale Wifi cost signaficant power usage. So we enable WiFi in later part of whole process.
+	Enable Wifi cost signaficant power usage. So we enable WiFi in later part of whole process.
  9. Connect to LASS
  10.Deepsleep
 

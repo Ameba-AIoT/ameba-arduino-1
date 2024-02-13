@@ -167,7 +167,7 @@ int8_t WiFiDrv::wifiSetKey(char* ssid, uint8_t ssid_len, uint8_t key_idx, const 
 	wifi.security_type = RTW_SECURITY_WEP_PSK;
     memset(password, 0, sizeof(password));
 
-    // convert hex sring to hex value
+    // convert hex string to hex value
     for (i=0, idx=0; i<len; i++) {
 
         if ( k[i] >= '0' && k[i] <= '9' ) {

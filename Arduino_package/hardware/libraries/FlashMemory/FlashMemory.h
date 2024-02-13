@@ -5,7 +5,7 @@
  * @brief The default flash address for application usage
  *
  * This is reference flash address that user can use.
- * If user use flash address overwirte image address, the it would corrupt image content.
+ * If user use flash address overwrite image address, the it would corrupt image content.
  **/
 #define FLASH_MEMORY_APP_BASE 0xFF000
 
@@ -13,7 +13,7 @@
  * @class FlashMemoryClass FlashMemory.h 
  * @brief Flash memory api
  *
- * There are 2 ways to operate memroy in this class. \n
+ * There are 2 ways to operate memory in this class. \n
  * The first one is to allocate a buf and mirror the content of flash. We operate this buf and update flash when needed.
  * In this way we can reduce flash memory operation since it cost time. \n
  * The second one is write to flash immediately. It would cost time but save buf.
@@ -68,7 +68,7 @@ public:
     /**
      * @brief Read fore bytes from flash memory
      *
-     * Read 4 byte from specifc offet based on base address.
+     * Read 4 byte from specific offset based on base address.
      *
      * @param[in] offset The offset according to base address
      * @return the read data with size of 4 bytes

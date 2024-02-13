@@ -78,7 +78,7 @@ int counter = 1;
 void loop() {
     //magnetSensor() normally return FALSE when window is closed, TRUE when window opened
     if (magnetSensor()) {
-        //counter ensure only publish once everytime window state changes 
+        //counter ensure only publish once every time window state changes 
         if (counter > 0) {
             client.publish(publishTopic, publishClose);
             Serial.println("###");

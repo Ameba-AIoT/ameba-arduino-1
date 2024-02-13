@@ -5,7 +5,7 @@
       Realtek Audio Shield (ALC5680) x1      
       Speaker x1
 
-  This sketch requre I2S interface.
+  This sketch require I2S interface.
   According to Teensy Audio Shield pinout, we connect pins as below:
 
       Ameba                Audio Shield

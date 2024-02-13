@@ -31,7 +31,7 @@ char publishTopic[]   = "amebapubto";
 char publishHello[]   = "---MQTT server Connected!---";
 char subscribeTopic[] = "amebasubto"; 
 char pubClosing[]     = "Curtain closing";
-char pubOpenning[]    = "Curtain openning";
+char pubOpenning[]    = "Curtain opening";
 
 // Callback function header
 void callback(char* topic, byte* payload, unsigned int length);
@@ -53,7 +53,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
 
     if ((arr[0] == 'o') && (arr[1] == 'p') && (arr[2] == 'e') && (arr[3] == 'n')) {
-        printf("---Received a OPEN msg, openning curtain now---\n"); 
+        printf("---Received a OPEN msg, opening curtain now---\n"); 
         myservo.write(openCurtain);
         client.publish(publishTopic,pubOpenning);   
     } else if ((arr[0] == 'c') && (arr[1] == 'l') && (arr[2] == 'o') && (arr[3] == 's') && (arr[4] == 'e')) {
@@ -69,7 +69,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 void setup() {
     Serial.begin(9600);
     myservo.attach(9);          // attaches the servo on pin 9 to the servo object
-    myservo.write(closeCurtain); //defualt curtain is close
+    myservo.write(closeCurtain); //default curtain is close
 
     while (status != WL_CONNECTED) {
         Serial.print("Attempting to connect to SSID: ");

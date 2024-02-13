@@ -54,7 +54,7 @@ public:
      * then he would find it's hard to flash image.
      * In this case, he can pull up pin 18.
      *
-     * @return true if system not allowed enter any power save state, and false vise versa
+     * @return true if system not allowed enter any power save state, and false vice versa
      */
     static bool safeLock();
 

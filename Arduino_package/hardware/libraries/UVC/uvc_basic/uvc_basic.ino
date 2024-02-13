@@ -1,7 +1,7 @@
 /*
   This sketch demonstrate how to streaming video of usb camera.
   Ameba receive video data from usb port and streaming out on wifi with rtsp protocol.
-  User can receive ths streaming data on PC or laptop with rtsp player.
+  User can receive the streaming data on PC or laptop with rtsp player.
 
   In this sketch you need:
     Ameba x 1
