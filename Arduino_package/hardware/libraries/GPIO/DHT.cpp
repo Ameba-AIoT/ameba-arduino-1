@@ -38,7 +38,7 @@ void DHT::begin(void) {
   DEBUG_PRINT("Max clock cycles: "); DEBUG_PRINTLN(_maxcycles, DEC);
 }
 
-//boolean S == Scale.  True == Fahrenheit; False == Celcius
+//boolean S == Scale.  True == Fahrenheit; False == Celsius
 float DHT::readTemperature(bool S, bool force) {
   float f = NAN;
 
@@ -95,7 +95,7 @@ float DHT::readHumidity(bool force) {
   return f;
 }
 
-//boolean isFahrenheit: True == Fahrenheit; False == Celcius
+//boolean isFahrenheit: True == Fahrenheit; False == Celsius
 float DHT::computeHeatIndex(float temperature, float percentHumidity, bool isFahrenheit) {
   // Using both Rothfusz and Steadman's equations
   // http://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml
